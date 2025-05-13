@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>Tentang Saya - Ardi</title>
+  <meta name="title" content="Tentang Saya - Ardi">
+  <meta name="description" content="Halaman tentang Ardi, seorang Junior Web Developer yang bersemangat dalam pengembangan web dan teknologi.">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="../assets/images/hero-banner.jpg">
+  <link rel="preload" as="image" href="../assets/images/Blog.svg">
+
+</head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="../" class="logo" style="text-decoration: none; color: #000000; font-size: 1.5em; font-weight: bold;">
+        Ardi
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="../" class="logo" style="text-decoration: none; color: #ffffff; font-size: 1.5em; font-weight: bold;">
+            Ardi
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="../" class="navbar-link">Home</a>
+          </li>
+
+          <li>
+            <a href="./" class="navbar-link active">About</a>
+          </li>
+
+          <li>
+            <a href="../project/" class="navbar-link">Projects</a>
+          </li>
+
+          <li>
+            <a href="../contact/" class="navbar-link">Contact</a>
+          </li>
+
+        </ul>
+
+        <div class="wrapper">
+          <a href="mailto:ardiantorizky7@gmail.com" class="contact-link">ardiantorizky7@gmail.com</a>
+          <a href="tel:085843978908" class="contact-link">+62 858 4397 8908</a>
+        </div>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="https://github.com/ardiajaa/" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.linkedin.com/in/achmad-rizky-putra-ardianto0" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/ardizamanmegalitikum/" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.youtube.com/@Arezaja" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #ABOUT ME
+      -->
+
+      <section class="section about" aria-labelledby="about-me-title" style="padding-top: 120px; padding-bottom: 60px;">
+        <div class="container">
+
+          <div style="display: grid; grid-template-columns: 1fr; gap: 50px; align-items: center;" class="about-main-layout">
+            
+            <figure class="hero-banner" 
+                    data-reveal="left" 
+                    style="max-width: 400px; /* Sedikit mengurangi lebar maks agar lebih proporsional */ margin-inline: auto; border-radius: 50%; /* Membuat kontainer figure juga bulat */ overflow: hidden; /* Memastikan gambar terpotong sesuai bentuk bulat */ box-shadow: 0 15px 35px hsla(240, 11%, 10%, 0.15); /* Menambah bayangan halus */ transition: transform 0.35s ease-out, box-shadow 0.35s ease-out; /* Transisi halus untuk efek hover */ cursor: pointer;"
+                    onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 20px 50px hsla(240, 11%, 10%, 0.2)'; this.querySelector('img').style.transform='scale(1.1)';"
+                    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 15px 35px hsla(240, 11%, 10%, 0.15)'; this.querySelector('img').style.transform='scale(1)';">
+              <img src="../assets/images/about.jpg" width="400" height="400" alt="Ardi" class="w-100"
+                   style="display: block; /* Menghilangkan spasi ekstra di bawah gambar */ width: 100%; height: 100%; /* Memastikan gambar mengisi figure */ aspect-ratio: 1 / 1; /* Memastikan rasio aspek 1:1 (persegi) */ object-fit: cover; /* Memastikan gambar menutupi area tanpa distorsi */ border-radius: 50%; /* Membuat gambar menjadi bulat sempurna */ transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); /* Transisi halus untuk efek zoom pada hover */">
+            </figure>
+
+
+            <div class="hero-content" data-reveal="right" style="text-align: left;">
+              <h1 class="h1 hero-title" id="about-me-title">
+                About Me
+              </h1>
+
+              <p class="section-text" style="margin-block: 24px 36px;">
+                Hi! I'm Ardi, a junior web developer who is passionate about continuing to learn and grow in the world of technology. I have a great interest in solving problems through code and creating useful, intuitive, and easy-to-use web applications. I am always enthusiastic about taking on new challenges and collaborating on innovative projects.
+                </p>
+
+              <div class="btn-wrapper" style="justify-content: flex-start;">
+                <a href="../assets/cv/dummy_cv.pdf" download="Ardi_CV.pdf" class="btn btn-primary">Download CV</a>
+                <a href="../contact/" class="btn btn-secondary">Contact Me</a>
+              </div>
+            </div>
+
+          </div>
+
+
+          <!-- Education -->
+          <div data-reveal="bottom" style="margin-top: 70px;">
+            <h2 class="h2 section-title">Education</h2>
+            <ul class="grid-list" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+              <li>
+                <div class="about-card" style="text-align: left; padding: 25px; background-color: #e6f7ff; border-radius: var(--radius-8); box-shadow: var(--shadow-1);">
+                  <div class="card-icon" style="margin-bottom: 15px; margin-inline: 0;">
+                     <img src="/assets/images/logo-smk.png" width="40" height="40" loading="lazy" alt="education icon"> <!-- Placeholder icon -->
+                  </div>
+                  <h3 class="h4 card-title" style="margin-block: 0 10px;">SMKN 1 Cerme Gresik</h3>
+                  <p class="card-text" style="margin-bottom: 5px;"><strong>Department:</strong> Computer & Network Engineering</p>
+                  <p class="card-text"><strong>Year:</strong> 2023 - 2026</p>
+                  <p class="card-text">SMK Negeri 1 Cerme is also the Academy Training Partner for MikroTik appointed to implement the MikroTik Academy class program for students, which is integrated into the curriculum through the topic of Computer Network Management.
+
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="about-card" style="text-align: left; padding: 25px; background-color: #e6f7ff; border-radius: var(--radius-8); box-shadow: var(--shadow-1);">
+                   <div class="card-icon" style="margin-bottom: 15px; margin-inline: 0;">
+                     <img src="/assets/images/logo-mtsn.png" width="40" height="40" loading="lazy" alt="certificate icon"> <!-- Placeholder icon -->
+                  </div>
+                  <h3 class="h4 card-title" style="margin-block: 0 10px;">MTsN Gresik</h3>
+                  <p class="card-text"><strong>Year:</strong> 2020 - 2023</p>
+                  <p class="card-text">MTsN (Madrasah Tsanawiyah Negeri) Gresik is a state Islamic junior high school that was founded in 1970, originally named MTs Darul Ulum. The location is on Jl. Raya Metatu No.31, Benjeng, Gresik 61172.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Experience -->
+          <div data-reveal="bottom" data-reveal-delay="0.25s" style="margin-top: 70px;">
+            <h2 class="h2 section-title">Experience</h2>
+             <ul class="grid-list" style="grid-template-columns: 1fr; gap: 30px;">
+              <li>
+                <div class="about-card" style="text-align: left; padding: 25px; background-color: #fff0e6; border-radius: var(--radius-8); box-shadow: var(--shadow-1);">
+                  <div class="card-icon" style="margin-bottom: 15px; margin-inline: 0;">
+                     <img src="/assets/images/mitratek.png" width="40" height="40" loading="lazy" alt="experience icon"> <!-- Placeholder icon -->
+                  </div>
+                  <h3 class="h4 card-title" style="margin-block: 0 5px;">CV. Mitra Teknologi Sejati</h3>
+                  <p class="card-text" style="margin-bottom: 10px;">Januari 2025 - Now</p>
+                  <p class="card-text"><strong>Position:</strong> Internship Students</p>
+                  <ul style="list-style: disc; padding-left: 20px; font-size: var(--fs-6);">
+                    <li>- Bentar Guys Lagi Mikir.</li>
+                    <li>- Besok Aja Okey.</li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Skills -->
+          <div data-reveal="bottom" data-reveal-delay="0.5s" style="margin-top: 70px;">
+            <h2 class="h2 section-title">Skill & Tools</h2>
+            <ul class="progress-list">
+              <li class="progress-item">
+                <div class="label-wrapper"><p>Suwun Wis Ngece Cak</p><span class="span">99 %</span></div>
+                <div class="progress"><div class="progress-fill" style="width: 99%; background-color: #c7b1dd"></div></div>
+              </li>
+              <li class="progress-item">
+                <div class="label-wrapper"><p>Opo Koe Iso Koyo Aku?</p><span class="span">88 %</span></div>
+                <div class="progress"><div class="progress-fill" style="width: 88%; background-color: #8caeec"></div></div>
+              </li>
+              <li class="progress-item">
+                <div class="label-wrapper"><p>Wong Ashor Rabakal Ndlosor</p><span class="span">77 %</span></div>
+                <div class="progress"><div class="progress-fill" style="width: 77%; background-color: #b0d4c1"></div></div>
+              </li>
+              <li class="progress-item">
+                <div class="label-wrapper"><p>Sing Cangkeme Dukur Bakalan Gugur</p><span class="span">66 %</span></div>
+                <div class="progress"><div class="progress-fill" style="width: 66%; background-color: #e3a6b6"></div></div>
+              </li>
+              <li class="progress-item">
+                <div class="label-wrapper"><p>Wong Liyo Ngerti Opo</p><span class="span">55 %</span></div>
+                <div class="progress"><div class="progress-fill" style="width: 55%; background-color: #f0db7d"></div></div>
+              </li>
+              <!-- <li class="progress-item">
+                <div class="label-wrapper"><p>RESTful APIs</p><span class="span">85 %</span></div>
+                <div class="progress"><div class="progress-fill" style="width: 85%; background-color: #a9def9"></div></div>
+              </li> -->
+            </ul>
+          </div>
+
+           <!-- Interests -->
+           <!-- <div data-reveal="bottom" data-reveal-delay="0.75s" style="margin-top: 70px;">
+              <h2 class="h2 section-title">Minat & Hobi</h2>
+              <p class="section-text">
+                Di luar coding, saya gemar mengikuti perkembangan teknologi terbaru, terutama di bidang web development dan AI. Saya juga suka membaca buku fiksi ilmiah, bermain catur, dan sesekali menjelajahi alam untuk mencari inspirasi baru. Berkontribusi pada proyek open-source juga menjadi salah satu cara saya untuk terus belajar dan berbagi pengetahuan.
+              </p>
+            </div> -->
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <p class="copyright">
+        © 2025 Ardianto. All rights reserved.
+      </p>
+
+      <ul class="social-list">
+
+        <li>
+          <a href="https://github.com/ardiajaa/" class="social-link" target="_blank" rel="noopener noreferrer">
+            <ion-icon name="logo-github"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.linkedin.com/in/achmad-rizky-putra-ardianto0" class="social-link" target="_blank" rel="noopener noreferrer">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.instagram.com/ardizamanmegalitikum/" class="social-link" target="_blank" rel="noopener noreferrer">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.youtube.com/@Arezaja" class="social-link" target="_blank" rel="noopener noreferrer">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+  </footer>
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="../assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <style>
+    /* Simple responsive adjustments for about page layout */
+    @media (min-width: 768px) {
+      .about-main-layout {
+        grid-template-columns: 0.8fr 1fr !important; /* Image on left, text on right */
+        gap: 70px !important;
+      }
+      .about-main-layout .hero-banner {
+        order: -1; /* Ensure image is on the left */
+      }
+    }
+    /* Placeholder icons - replace with actual SVGs or remove if not needed */
+    /* You might need to create these SVGs or find suitable ones */
+    /* e.g. ../assets/images/icon-education.svg */
+  </style>
+
+</body>
+</html>

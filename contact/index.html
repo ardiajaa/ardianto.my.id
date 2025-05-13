@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    - tag meta utama
+  -->
+  <title>Ardi - Junior Web Development</title>
+  <meta name="title" content="Kontak - Ardi - Junior Web Development">
+  <meta name="description" content="Hubungi Ardi untuk kolaborasi atau pertanyaan.">
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../favicon.svg" type="image/svg+xml">
+
+  <!--
+    - link google font
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+
+  <!--
+    - link css kustom
+  -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!--
+    - preload gambar
+  -->
+  <link rel="preload" as="image" href="../assets/images/hero-banner.jpg">
+  <link rel="preload" as="image" href="../assets/images/Blog.svg"> <!-- Meskipun tidak digunakan di halaman ini, biarkan untuk konsistensi jika diperlukan -->
+
+  <!-- Style untuk Notifikasi Pop-up Tengah Layar -->
+  <style>
+    #notification-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.7);
+      background: linear-gradient(135deg, #c7b1dd 0%, #a78bce 100%); /* Warna sesuai tema website */
+      color: white;
+      padding: 50px 60px;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(199, 177, 221, 0.3), 0 10px 20px rgba(199, 177, 221, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      font-family: var(--ff-manrope);
+      text-align: center;
+      min-width: 350px;
+      max-width: 90%;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+    }
+
+    #notification-popup.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    #notification-popup ion-icon {
+      font-size: 5rem;
+      color: white;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      padding: 15px;
+      margin-bottom: 15px;
+      animation: pulse-soft 1.5s infinite;
+    }
+
+    #notification-popup span {
+      line-height: 1.6;
+      font-size: var(--fs-4);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    @keyframes pulse-soft {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      }
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <!--
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="/" class="logo" style="text-decoration: none; color: #000000; font-size: 1.5em; font-weight: bold;">
+        Ardi
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="/" class="logo" style="text-decoration: none; color: #ffffff; font-size: 1.5em; font-weight: bold;">
+            Ardi
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="/" class="navbar-link">Home</a>
+          </li>
+
+          <li>
+            <a href="/about/" class="navbar-link">About</a>
+          </li>
+
+          <li>
+            <a href="/project/" class="navbar-link">Projects</a>
+          </li>
+
+          <li>
+            <!-- Tandai sebagai aktif jika memungkinkan dengan JS, atau tambahkan kelas 'active' secara manual jika tidak ada JS -->
+            <a href="/contact/" class="navbar-link active">Contact</a>
+          </li>
+
+        </ul>
+
+        <div class="wrapper">
+          <a href="mailto:ardiantorizky7@gmail.com" class="contact-link">ardiantorizky7@gmail.com</a>
+          <a href="tel:6285843978908" class="contact-link">+62 858 4397 8908</a>
+        </div>
+
+        <ul class="social-list">
+          <li>
+            <a href="https://github.com/ardiajaa/" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/achmad-rizky-putra-ardianto0" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/ardizamanmegalitikum/" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@Arezaja" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+  <main>
+    <article>
+
+      <!--
+        - #CONTACT SECTION
+      -->
+
+      <section class="section contact" aria-label="contact" style="padding-top: 120px;"> <!-- Tambahkan padding atas untuk menghindari tumpang tindih dengan header fixed -->
+        <div class="container">
+
+          <div class="contact-card">
+
+            <div class="contact-content" data-reveal="left">
+
+              <div class="card-icon">
+                <img src="../assets/images/icon-5.svg" width="44" height="44" loading="lazy" alt="ikon amplop">
+              </div>
+
+              <h2 class="h2 section-title">Let’s Collaborate!</h2>
+
+              <p class="section-text">
+                I’m always open to discussing new projects, creative opportunities, or just brainstorming. Feel free to contact me through this form, and I’ll respond promptly.
+                </p>
+
+              <!-- Informasi Kontak Tambahan (Opsional) -->
+              <ul class="contact-list" style="margin-top: 30px; list-style: none; padding: 0;">
+                 <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                   <ion-icon name="mail-outline" style="font-size: 2rem; color: var(--cinnamon-satin);"></ion-icon>
+                   <a href="mailto:ardiantorizky7@gmail.com" class="contact-link" style="color: var(--black-coral);">ardiantorizky7@gmail.com</a>
+                 </li>
+                 <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                   <ion-icon name="call-outline" style="font-size: 2rem; color: var(--cinnamon-satin);"></ion-icon>
+                   <a href="tel:085843978908" class="contact-link" style="color: var(--black-coral);">+62 858 4397 8908</a>
+                 </li>
+                 <li style="display: flex; align-items: center; gap: 10px;">
+                    <ion-icon name="location-outline" style="font-size: 2rem; color: var(--cinnamon-satin);"></ion-icon>
+                    <span style="color: var(--black-coral);">Gresik, Jawa Timur, Indonesia</span>
+                 </li>
+              </ul>
+
+
+            </div>
+
+            <!-- Formulir Kontak -->
+            <form action="" class="contact-form" data-reveal="right" id="contactForm">
+
+              <h3 class="h3" style="margin-bottom: 20px; color: var(--charcoal);">Send Message Here!</h3>
+
+              <div class="input-wrapper">
+                <input type="text" name="name" placeholder="Name *" required class="input-field">
+                <input type="email" name="email_address" placeholder="Email *" required class="input-field">
+              </div>
+
+              <textarea name="message" placeholder="Message *" required class="input-field"></textarea>
+
+              <button type="submit" class="btn btn-secondary">Send Message</button>
+
+            </form>
+            <!-- Akhir Formulir Kontak -->
+
+          </div> <!-- Akhir .contact-card -->
+
+          <!-- Bagian Peta Lokasi -->
+          <div class="location-map" style="margin-top: 60px; text-align: center;">
+            <h3 class="h3" style="margin-bottom: 30px; color: var(--charcoal);">Our Location</h3>
+            <div class="embed-map-responsive">
+              <div class="embed-map-container">
+                <iframe class="embed-map-frame" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Man%202%20Gresik&t=h&z=17&ie=UTF8&iwloc=B&output=embed"></iframe>
+                <a href="https://sprunkiretake.net" style="font-size:2px!important;color:gray!important;position:absolute;bottom:0;left:0;z-index:1;max-height:1px;overflow:hidden">sprunki retake</a>
+              </div>
+              <style>
+                .embed-map-responsive{position:relative;text-align:right;width:100%;height:0;padding-bottom:66.66666666666666%;}
+                .embed-map-container{overflow:hidden;background:none!important;width:100%;height:100%;position:absolute;top:0;left:0;}
+                .embed-map-frame{width:100%!important;height:100%!important;position:absolute;top:0;left:0;}
+              </style>
+            </div>
+          </div>
+          <!-- Akhir Bagian Peta Lokasi -->
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Elemen Notifikasi Tengah Layar -->
+  <div id="notification-popup">
+    <ion-icon name="checkmark-circle-outline"></ion-icon>
+    <span>Your message has been sent successfully! Thank you for your feedback.</span>
+  </div>
+
+  <!--
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <p class="copyright">
+        © 2025 Ardianto. All rights reserved.
+      </p>
+
+      <ul class="social-list">
+        <li>
+          <a href="https://github.com/ardiajaa/" class="social-link" target="_blank" rel="noopener noreferrer">
+            <ion-icon name="logo-github"></ion-icon>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/achmad-rizky-putra-ardianto0" class="social-link" target="_blank" rel="noopener noreferrer">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/ardizamanmegalitikum/" class="social-link" target="_blank" rel="noopener noreferrer">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/@Arezaja" class="social-link" target="_blank" rel="noopener noreferrer">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </footer>
+
+  <!--
+    - link js kustom
+  -->
+  <script src="../assets/js/script.js"></script>
+
+  <!--
+    - link ionicon
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Script untuk Menampilkan Notifikasi -->
+  <script>
+    const contactForm = document.getElementById('contactForm');
+    const notificationPopup = document.getElementById('notification-popup');
+
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Mencegah pengiriman form standar
+
+      // Simulasi pengiriman data (jika ada backend, proses di sini)
+      // Untuk contoh ini, kita langsung tampilkan notifikasi
+
+      // Tampilkan notifikasi
+      notificationPopup.classList.add('show');
+
+      // Kosongkan form setelah beberapa saat (opsional, tapi baik untuk UX)
+      // Diberi sedikit jeda agar user sempat melihat inputnya sebelum reset
+      setTimeout(() => {
+        contactForm.reset();
+      }, 300); 
+
+      // Sembunyikan notifikasi setelah beberapa detik
+      setTimeout(() => {
+        notificationPopup.classList.remove('show');
+      }, 5000); // Notifikasi akan hilang setelah 5 detik
+    });
+  </script>
+
+</body>
+
+</html>
