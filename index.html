@@ -165,10 +165,10 @@
                 transition: transform 0.35s ease-out, box-shadow 0.35s ease-out;
                 cursor: pointer;
                 position: relative;
+                overflow: hidden;
               "
               onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 20px 50px hsla(240, 11%, 10%, 0.2)'; this.querySelector('img.w-100').style.transform='scale(1.1)';"
-              onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 15px 35px hsla(240, 11%, 10%, 0.15)'; this.querySelector('img.w-100').style.transform='scale(1)';">
-              <img
+              onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 15px 35px hsla(240, 11%, 10%, 0.15)'; this.querySelector('img.w-100').style.transform='scale(1)';">              <img
                 src="./assets/images/hero-banner.jpg"
                 width="400"
                 height="400"
@@ -189,10 +189,31 @@
                 src="https://cdn.antaranews.com/cache/1200x800/2018/03/real_madrid.png"
                 width="203"
                 height="91"
-                alt="250+ Projects Done"
+                alt="Hala Madrid y nada más"
                 class="shape"
                 data-reveal="top"
-                data-reveal-delay="0.25s" />
+                data-reveal-delay="0.25s"
+                style="
+                  position: absolute;
+                  bottom: 20px;
+                  right: 20px;
+                  animation: wave 4s infinite alternate;
+                  transform-origin: bottom right;
+                  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+                  z-index: 1;
+                "
+                onmouseover="this.style.animation = 'wave 2s infinite alternate'; this.style.transform = 'scale(1.1) rotate(5deg)';"
+                onmouseout="this.style.animation = 'wave 4s infinite alternate'; this.style.transform = 'scale(1) rotate(0deg)';"> 
+              <style>
+                @keyframes wave {
+                  0% { transform: rotate(-2deg) translateY(0) skew(1deg, 0deg); }
+                  25% { transform: rotate(3deg) translateY(-2px) skew(-1deg, 1deg); }
+                  50% { transform: rotate(-3deg) translateY(2px) skew(1deg, -1deg); }
+                  75% { transform: rotate(2deg) translateY(-1px) skew(-0.5deg, 0.5deg); }
+                  100% { transform: rotate(-1deg) translateY(0) skew(0.5deg, -0.5deg); }
+                }
+              </style>
             </figure>
 
             <div class="hero-content">
