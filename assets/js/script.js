@@ -1,6 +1,4 @@
-'use strict';
-
-
+"use strict";
 
 /**
  * add event listener on multiple elements
@@ -10,9 +8,7 @@ const addEventOnElements = function (elements, eventType, callback) {
   for (let i = 0, len = elements.length; i < len; i++) {
     elements[i].addEventListener(eventType, callback);
   }
-}
-
-
+};
 
 /**
  * NAVBAR TOGGLE FOR MOBILE
@@ -26,11 +22,9 @@ const toggleNavbar = function () {
   navbar.classList.toggle("active");
   overlay.classList.toggle("active");
   document.body.classList.toggle("nav-active");
-}
+};
 
 addEventOnElements(navTogglers, "click", toggleNavbar);
-
-
 
 /**
  * HEADER
@@ -47,8 +41,6 @@ window.addEventListener("scroll", function () {
   }
 });
 
-
-
 /**
  * SCROLL REVEAL
  */
@@ -58,14 +50,18 @@ const revealDelayElements = document.querySelectorAll("[data-reveal-delay]");
 
 const reveal = function () {
   for (let i = 0, len = revealElements.length; i < len; i++) {
-    if (revealElements[i].getBoundingClientRect().top < window.innerHeight / 1.2) {
+    if (
+      revealElements[i].getBoundingClientRect().top <
+      window.innerHeight / 1.2
+    ) {
       revealElements[i].classList.add("revealed");
     }
   }
-}
+};
 
 for (let i = 0, len = revealDelayElements.length; i < len; i++) {
-  revealDelayElements[i].style.transitionDelay = revealDelayElements[i].dataset.revealDelay;
+  revealDelayElements[i].style.transitionDelay =
+    revealDelayElements[i].dataset.revealDelay;
 }
 
 window.addEventListener("scroll", reveal);

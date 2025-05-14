@@ -1,418 +1,563 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- 
+    <!-- 
     - primary meta tags
   -->
-  <title>Projects - Ardi</title>
-  <meta name="title" content="My Projects - Ardi">
-  <meta name="description" content="A list of projects completed by Ardi, a Junior Web Developer, showcasing skills and creativity.">
+    <title>Projects - Ardi</title>
+    <meta name="title" content="My Projects - Ardi" />
+    <meta
+      name="description"
+      content="A list of projects completed by Ardi, a Junior Web Developer, showcasing skills and creativity." />
 
-  <!-- 
+    <!-- 
     - favicon
   -->
-  <link rel="shortcut icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../favicon.svg" type="image/svg+xml" />
 
-  <!-- 
+    <!-- 
     - google font link
   -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap"
+      rel="stylesheet" />
 
-  <!-- 
+    <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css" />
 
-  <!-- 
+    <!-- 
     - preload images
   -->
-  <link rel="preload" as="image" href="../assets/images/project-1.png"> <!-- Project 1 Image -->
-  <link rel="preload" as="image" href="../assets/images/project-2.png"> <!-- Project 2 Image -->
-  <link rel="preload" as="image" href="../assets/images/project-3.png"> <!-- Project 3 Image -->
+    <link rel="preload" as="image" href="../assets/images/project-1.png" />
+    <!-- Project 1 Image -->
+    <link rel="preload" as="image" href="../assets/images/project-2.png" />
+    <!-- Project 2 Image -->
+    <link rel="preload" as="image" href="../assets/images/project-3.png" />
+    <!-- Project 3 Image -->
+  </head>
 
-</head>
-
-<body>
-
-  <!-- 
+  <body>
+    <!-- 
     - #HEADER
   -->
 
-  <header class="header" data-header>
-    <div class="container">
+    <header class="header" data-header>
+      <div class="container">
+        <a
+          href="../"
+          class="logo"
+          style="
+            text-decoration: none;
+            color: #000000;
+            font-size: 1.5em;
+            font-weight: bold;
+          ">
+          Ardi
+        </a>
 
-      <a href="../" class="logo" style="text-decoration: none; color: #000000; font-size: 1.5em; font-weight: bold;">
-        Ardi
-      </a>
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <a
+              href="../"
+              class="logo"
+              style="
+                text-decoration: none;
+                color: #ffffff;
+                font-size: 1.5em;
+                font-weight: bold;
+              ">
+              Ardi
+            </a>
 
-      <nav class="navbar" data-navbar>
+            <button
+              class="nav-close-btn"
+              aria-label="close menu"
+              data-nav-toggler>
+              <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+            </button>
+          </div>
 
-        <div class="navbar-top">
-          <a href="../" class="logo" style="text-decoration: none; color: #ffffff; font-size: 1.5em; font-weight: bold;">
-            Ardi
-          </a>
+          <ul class="navbar-list">
+            <li>
+              <a href="../" class="navbar-link">Home</a>
+            </li>
 
-          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
-            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-          </button>
-        </div>
+            <li>
+              <a href="../about/" class="navbar-link">About</a>
+            </li>
 
-        <ul class="navbar-list">
+            <li>
+              <a href="./" class="navbar-link active">Projects</a>
+            </li>
 
-          <li>
-            <a href="../" class="navbar-link">Home</a>
-          </li>
+            <li>
+              <a href="../contact/" class="navbar-link">Contact</a>
+            </li>
+          </ul>
 
-          <li>
-            <a href="../about/" class="navbar-link">About</a>
-          </li>
+          <div class="wrapper">
+            <a href="mailto:ardiantorizky7@gmail.com" class="contact-link"
+              >ardiantorizky7@gmail.com</a
+            >
+            <a href="tel:085843978908" class="contact-link"
+              >+62 858 4397 8908</a
+            >
+          </div>
 
-          <li>
-            <a href="./" class="navbar-link active">Projects</a>
-          </li>
+          <ul class="social-list">
+            <li>
+              <a
+                href="https://github.com/ardiajaa/"
+                class="social-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                <ion-icon name="logo-github"></ion-icon>
+              </a>
+            </li>
 
-          
+            <li>
+              <a
+                href="https://www.linkedin.com/in/achmad-rizky-putra-ardianto0"
+                class="social-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
 
-          <li>
-            <a href="../contact/" class="navbar-link">Contact</a>
-          </li>
+            <li>
+              <a
+                href="https://www.instagram.com/ardizamanmegalitikum/"
+                class="social-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
 
-        </ul>
+            <li>
+              <a
+                href="https://www.youtube.com/@Arezaja"
+                class="social-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </nav>
 
-        <div class="wrapper">
-          <a href="mailto:ardiantorizky7@gmail.com" class="contact-link">ardiantorizky7@gmail.com</a>
-          <a href="tel:085843978908" class="contact-link">+62 858 4397 8908</a>
-        </div>
+        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <div class="overlay" data-nav-toggler data-overlay></div>
+      </div>
+    </header>
+
+    <main>
+      <article>
+        <!-- 
+        - #PROJECTS
+      -->
+
+        <section
+          class="section projects"
+          aria-labelledby="projects-title"
+          style="padding-top: 120px; padding-bottom: 60px">
+          <div class="container">
+            <div class="title-wrapper" data-reveal="top">
+              <h1 class="h1 section-title" id="projects-title">My Projects</h1>
+              <p class="section-text">
+                Here are some of the projects I've worked on, showcasing my
+                skills and passion in web development. Each project reflects a
+                unique challenge and learning experience.
+              </p>
+            </div>
+
+            <ul class="grid-list project-list">
+              <!-- Project Item 1 -->
+              <li data-reveal="bottom">
+                <div class="project-card">
+                  <figure class="card-banner img-holder">
+                    <img
+                      src="../assets/images/project-1.png"
+                      width="600"
+                      height="400"
+                      loading="lazy"
+                      alt="Interactive Web Application Screenshot"
+                      class="img-cover" />
+                  </figure>
+                  <div class="card-content">
+                    <h3 class="h3 card-title">
+                      <a class="card-link"
+                        >Project 1: Interactive Web Application</a
+                      >
+                    </h3>
+                    <p class="card-text">
+                      A dynamic web application built to provide an engaging
+                      user experience. Focused on modern UI/UX principles and
+                      robust functionality.
+                    </p>
+                    <div class="card-meta">
+                      <span class="meta-item"
+                        ><strong>Technologies:</strong> React, Node.js, CSS3,
+                        HTML5</span
+                      >
+                    </div>
+                    <div class="btn-wrapper">
+                      <a
+                        href="#"
+                        class="btn btn-primary btn-sm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Live Demo</a
+                      >
+                      <a
+                        href="#"
+                        class="btn btn-secondary btn-sm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >GitHub</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Project Item 2 -->
+              <li data-reveal="bottom" data-reveal-delay="0.25s">
+                <div class="project-card">
+                  <figure class="card-banner img-holder">
+                    <img
+                      src="../assets/images/project-2.png"
+                      width="600"
+                      height="400"
+                      loading="lazy"
+                      alt="Modern E-commerce Platform Screenshot"
+                      class="img-cover" />
+                  </figure>
+                  <div class="card-content">
+                    <h3 class="h3 card-title">
+                      <a class="card-link"
+                        >Project 2: Modern E-commerce Platform</a
+                      >
+                    </h3>
+                    <p class="card-text">
+                      Feature-rich e-commerce platform with a focus on intuitive
+                      navigation, secure payments, and a seamless shopping
+                      journey.
+                    </p>
+                    <div class="card-meta">
+                      <span class="meta-item"
+                        ><strong>Technologies:</strong> Vue.js, Firebase, Stripe
+                        API</span
+                      >
+                    </div>
+                    <div class="btn-wrapper">
+                      <a
+                        href="#"
+                        class="btn btn-primary btn-sm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Live Demo</a
+                      >
+                      <a
+                        href="#"
+                        class="btn btn-secondary btn-sm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >GitHub</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Project Item 3 -->
+              <li data-reveal="bottom" data-reveal-delay="0.5s">
+                <div class="project-card">
+                  <figure class="card-banner img-holder">
+                    <img
+                      src="../assets/images/project-3.png"
+                      width="600"
+                      height="400"
+                      loading="lazy"
+                      alt="Content Management System Screenshot"
+                      class="img-cover" />
+                  </figure>
+                  <div class="card-content">
+                    <h3 class="h3 card-title">
+                      <a class="card-link"
+                        >Project 3: Content Management System (CMS)</a
+                      >
+                    </h3>
+                    <p class="card-text">
+                      A custom-built CMS designed for easy content updates and
+                      site management, empowering users with control over their
+                      web presence.
+                    </p>
+                    <div class="card-meta">
+                      <span class="meta-item"
+                        ><strong>Technologies:</strong> PHP, Laravel, MySQL,
+                        JavaScript</span
+                      >
+                    </div>
+                    <div class="btn-wrapper">
+                      <a
+                        href="#"
+                        class="btn btn-primary btn-sm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Live Demo</a
+                      >
+                      <a
+                        href="#"
+                        class="btn btn-secondary btn-sm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >GitHub</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Add more project items as needed -->
+            </ul>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <!-- 
+    - #FOOTER
+  -->
+
+    <footer class="footer">
+      <div class="container">
+        <p class="copyright">© 2025 Ardianto. All rights reserved.</p>
 
         <ul class="social-list">
-
           <li>
-            <a href="https://github.com/ardiajaa/" class="social-link" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/ardiajaa/"
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer">
               <ion-icon name="logo-github"></ion-icon>
             </a>
           </li>
 
           <li>
-            <a href="https://www.linkedin.com/in/achmad-rizky-putra-ardianto0" class="social-link" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.linkedin.com/in/achmad-rizky-putra-ardianto0"
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer">
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
           </li>
 
           <li>
-            <a href="https://www.instagram.com/ardizamanmegalitikum/" class="social-link" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.instagram.com/ardizamanmegalitikum/"
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </li>
 
           <li>
-            <a href="https://www.youtube.com/@Arezaja" class="social-link" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.youtube.com/@Arezaja"
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer">
               <ion-icon name="logo-youtube"></ion-icon>
             </a>
           </li>
-
         </ul>
+      </div>
+    </footer>
 
-      </nav>
-
-      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-      </button>
-
-      <div class="overlay" data-nav-toggler data-overlay></div>
-
-    </div>
-  </header>
-
-
-  <main>
-    <article>
-
-      <!-- 
-        - #PROJECTS
-      -->
-
-      <section class="section projects" aria-labelledby="projects-title" style="padding-top: 120px; padding-bottom: 60px;">
-        <div class="container">
-
-          <div class="title-wrapper" data-reveal="top">
-            <h1 class="h1 section-title" id="projects-title">My Projects</h1>
-            <p class="section-text">
-              Here are some of the projects I've worked on, showcasing my skills and passion in web development. Each project reflects a unique challenge and learning experience.
-            </p>
-          </div>
-
-          <ul class="grid-list project-list">
-
-            <!-- Project Item 1 -->
-            <li data-reveal="bottom">
-              <div class="project-card">
-                <figure class="card-banner img-holder">
-                  <img src="../assets/images/project-1.png" width="600" height="400" loading="lazy" alt="Interactive Web Application Screenshot" class="img-cover">
-                </figure>
-                <div class="card-content">
-                  <h3 class="h3 card-title">
-                    <a class="card-link">Project 1: Interactive Web Application</a>
-                  </h3>
-                  <p class="card-text">
-                    A dynamic web application built to provide an engaging user experience. Focused on modern UI/UX principles and robust functionality.
-                  </p>
-                  <div class="card-meta">
-                    <span class="meta-item"><strong>Technologies:</strong> React, Node.js, CSS3, HTML5</span>
-                  </div>
-                  <div class="btn-wrapper">
-                    <a href="#" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                    <a href="#" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">GitHub</a>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- Project Item 2 -->
-            <li data-reveal="bottom" data-reveal-delay="0.25s">
-              <div class="project-card">
-                <figure class="card-banner img-holder">
-                  <img src="../assets/images/project-2.png" width="600" height="400" loading="lazy" alt="Modern E-commerce Platform Screenshot" class="img-cover">
-                </figure>
-                <div class="card-content">
-                  <h3 class="h3 card-title">
-                    <a class="card-link">Project 2: Modern E-commerce Platform</a>
-                  </h3>
-                  <p class="card-text">
-                    Feature-rich e-commerce platform with a focus on intuitive navigation, secure payments, and a seamless shopping journey.
-                  </p>
-                  <div class="card-meta">
-                    <span class="meta-item"><strong>Technologies:</strong> Vue.js, Firebase, Stripe API</span>
-                  </div>
-                  <div class="btn-wrapper">
-                    <a href="#" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                    <a href="#" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">GitHub</a>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- Project Item 3 -->
-            <li data-reveal="bottom" data-reveal-delay="0.5s">
-              <div class="project-card">
-                <figure class="card-banner img-holder">
-                  <img src="../assets/images/project-3.png" width="600" height="400" loading="lazy" alt="Content Management System Screenshot" class="img-cover">
-                </figure>
-                <div class="card-content">
-                  <h3 class="h3 card-title">
-                    <a class="card-link">Project 3: Content Management System (CMS)</a>
-                  </h3>
-                  <p class="card-text">
-                    A custom-built CMS designed for easy content updates and site management, empowering users with control over their web presence.
-                  </p>
-                  <div class="card-meta">
-                    <span class="meta-item"><strong>Technologies:</strong> PHP, Laravel, MySQL, JavaScript</span>
-                  </div>
-                  <div class="btn-wrapper">
-                    <a href="#" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                    <a href="#" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">GitHub</a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            
-            <!-- Add more project items as needed -->
-
-          </ul>
-
-        </div>
-      </section>
-
-    </article>
-  </main>
-
-
-  <!-- 
-    - #FOOTER
-  -->
-
-  <footer class="footer">
-    <div class="container">
-
-      <p class="copyright">
-        © 2025 Ardianto. All rights reserved.
-      </p>
-
-      <ul class="social-list">
-
-        <li>
-          <a href="https://github.com/ardiajaa/" class="social-link" target="_blank" rel="noopener noreferrer">
-            <ion-icon name="logo-github"></ion-icon>
-          </a>
-        </li>
-
-        <li>
-          <a href="https://www.linkedin.com/in/achmad-rizky-putra-ardianto0" class="social-link" target="_blank" rel="noopener noreferrer">
-            <ion-icon name="logo-linkedin"></ion-icon>
-          </a>
-        </li>
-
-        <li>
-          <a href="https://www.instagram.com/ardizamanmegalitikum/" class="social-link" target="_blank" rel="noopener noreferrer">
-            <ion-icon name="logo-instagram"></ion-icon>
-          </a>
-        </li>
-
-        <li>
-          <a href="https://www.youtube.com/@Arezaja" class="social-link" target="_blank" rel="noopener noreferrer">
-            <ion-icon name="logo-youtube"></ion-icon>
-          </a>
-        </li>
-
-      </ul>
-
-    </div>
-  </footer>
-
-
-  <!-- 
+    <!-- 
     - custom js link
   -->
-  <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/script.js"></script>
 
-  <!-- 
+    <!-- 
     - ionicon link
   -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-  <style>
-    .project-list {
+    <style>
+      .project-list {
         margin-top: 60px; /* Increased space above the project cards list */
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly larger min card width */
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(320px, 1fr)
+        ); /* Slightly larger min card width */
         gap: 40px; /* Increased space between cards */
-    }
+      }
 
-    .project-list > li {
-        display: flex; 
-    }
+      .project-list > li {
+        display: flex;
+      }
 
-    .project-card {
-        background-color: var(--white, #ffffff); /* Cleaner, brighter card background */
-        border-radius: var(--radius-12, 12px); /* Softer, more modern rounded corners */
-        box-shadow: var(--shadow-1, 0 5px 15px rgba(0,0,0,0.08)); /* Softer default shadow */
-        overflow: hidden; 
+      .project-card {
+        background-color: var(
+          --white,
+          #ffffff
+        ); /* Cleaner, brighter card background */
+        border-radius: var(
+          --radius-12,
+          12px
+        ); /* Softer, more modern rounded corners */
+        box-shadow: var(
+          --shadow-1,
+          0 5px 15px rgba(0, 0, 0, 0.08)
+        ); /* Softer default shadow */
+        overflow: hidden;
         display: flex;
         flex-direction: column;
-        height: 100%; 
+        height: 100%;
         width: 100%;
-        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transitions for hover effects */
-    }
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+          box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transitions for hover effects */
+      }
 
-    .project-card:hover {
+      .project-card:hover {
         transform: translateY(-10px); /* More noticeable lift effect on hover */
-        box-shadow: var(--shadow-hover, 0 10px 25px rgba(0,0,0,0.12)); /* More pronounced shadow on hover */
-    }
+        box-shadow: var(
+          --shadow-hover,
+          0 10px 25px rgba(0, 0, 0, 0.12)
+        ); /* More pronounced shadow on hover */
+      }
 
-    .project-card .card-banner {
+      .project-card .card-banner {
         height: 220px; /* Consistent height for banner images */
-        background-color: var(--light-gray, #e9ecef); /* Lighter placeholder bg */
+        background-color: var(
+          --light-gray,
+          #e9ecef
+        ); /* Lighter placeholder bg */
         overflow: hidden; /* Essential for image zoom effect */
-    }
+      }
 
-    .project-card .card-banner img.img-cover {
+      .project-card .card-banner img.img-cover {
         display: block;
         width: 100%;
         height: 100%;
-        object-fit: cover; 
+        object-fit: cover;
         transition: transform 0.4s ease-out; /* Smooth zoom transition for image */
-    }
+      }
 
-    .project-card:hover .card-banner img.img-cover {
+      .project-card:hover .card-banner img.img-cover {
         transform: scale(1.07); /* Subtle zoom effect on image hover */
-    }
+      }
 
-    .project-card .card-content {
+      .project-card .card-content {
         padding: 25px 30px; /* Generous padding inside the card content area */
-        flex-grow: 1; 
+        flex-grow: 1;
         display: flex;
         flex-direction: column;
-    }
+      }
 
-    .project-card .card-title {
+      .project-card .card-title {
         margin-bottom: 12px; /* Adjusted spacing */
-    }
+      }
 
-    .project-card .card-title a.card-link {
+      .project-card .card-title a.card-link {
         text-decoration: none;
-        color: var(--eerie-black, #181818); /* Darker, more readable title color */
+        color: var(
+          --eerie-black,
+          #181818
+        ); /* Darker, more readable title color */
         transition: color 0.2s ease-in-out;
-    }
+      }
 
-    .project-card .card-title a.card-link:hover {
-        color: var(--kappel, #0056b3); 
+      .project-card .card-title a.card-link:hover {
+        color: var(--kappel, #0056b3);
         text-decoration: none; /* Removing underline for a cleaner look, color change is enough */
-    }
+      }
 
-    .project-card .card-text {
+      .project-card .card-text {
         margin-bottom: 20px; /* Increased space before meta/buttons */
         font-size: var(--fs-6, 0.9rem); /* Slightly adjusted font size */
         line-height: 1.75; /* Improved line height for readability */
-        color: var(--sonic-silver, #555555); /* Slightly darker text for better contrast */
-        flex-grow: 1; 
-    }
+        color: var(
+          --sonic-silver,
+          #555555
+        ); /* Slightly darker text for better contrast */
+        flex-grow: 1;
+      }
 
-    .project-card .card-meta {
+      .project-card .card-meta {
         margin-bottom: 20px; /* Consistent spacing */
-    }
+      }
 
-    .project-card .meta-item {
+      .project-card .meta-item {
         font-size: var(--fs-7, 0.85rem); /* Slightly adjusted font size */
-        color: var(--kappel, #0056b3); 
-    }
-    .project-card .meta-item strong{
-        color: var(--eerie-black, #222); 
+        color: var(--kappel, #0056b3);
+      }
+      .project-card .meta-item strong {
+        color: var(--eerie-black, #222);
         font-weight: 600; /* Bolder label */
-    }
+      }
 
-
-    .project-card .btn-wrapper {
-        margin-top: auto; 
+      .project-card .btn-wrapper {
+        margin-top: auto;
         display: flex;
         gap: 15px; /* Increased space between buttons */
-        flex-wrap: wrap; 
-        padding-top: 15px; 
-    }
+        flex-wrap: wrap;
+        padding-top: 15px;
+      }
 
-    .btn-sm {
+      .btn-sm {
         padding: 10px 22px; /* Slightly larger padding for better clickability */
-        font-size: var(--fs-7, 0.875rem); 
+        font-size: var(--fs-7, 0.875rem);
         border-radius: var(--radius-6, 6px); /* Consistent rounded buttons */
-        transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Added box-shadow transition */
-    }
-    
-    .btn-primary:hover, .btn-secondary:hover {
+        transition: background-color 0.2s ease, color 0.2s ease,
+          transform 0.2s ease, box-shadow 0.2s ease; /* Added box-shadow transition */
+      }
+
+      .btn-primary:hover,
+      .btn-secondary:hover {
         transform: translateY(-2px); /* Subtle lift on button hover */
-        box-shadow: var(--shadow-1, 0 4px 8px rgba(0,0,0,0.1)); /* Add shadow to buttons on hover */
-    }
+        box-shadow: var(
+          --shadow-1,
+          0 4px 8px rgba(0, 0, 0, 0.1)
+        ); /* Add shadow to buttons on hover */
+      }
 
-    /* Styling for the section title and text for better visual hierarchy */
-    .title-wrapper .section-title {
-      color: var(--eerie-black, #111);
-      margin-bottom: 15px;
-    }
+      /* Styling for the section title and text for better visual hierarchy */
+      .title-wrapper .section-title {
+        color: var(--eerie-black, #111);
+        margin-bottom: 15px;
+      }
 
-    .title-wrapper .section-text {
-      color: var(--sonic-silver, #4a4a4a); /* Darker for better readability */
-      max-width: 750px; /* Control line length for readability */
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.65; /* Improved line height */
-      font-size: var(--fs-5, 1.05rem); /* Slightly larger intro text */
-    }
-
-  </style>
-
-</body>
+      .title-wrapper .section-text {
+        color: var(--sonic-silver, #4a4a4a); /* Darker for better readability */
+        max-width: 750px; /* Control line length for readability */
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.65; /* Improved line height */
+        font-size: var(--fs-5, 1.05rem); /* Slightly larger intro text */
+      }
+    </style>
+  </body>
 </html>
