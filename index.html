@@ -185,76 +185,15 @@
                   transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
                 " />
 
-              <div class="flag-container" 
-                   style="position: absolute; 
-                          bottom: -30px; 
-                          right: -30px; 
-                          transform-origin: bottom right;
-                          animation: waveFlag 3s ease-in-out infinite;
-                          filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2))">
-                <div class="flag-wave" 
-                     style="position: relative;
-                            width: 203px;
-                            height: 91px;
-                            transform-style: preserve-3d;
-                            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)">
-                  <img
-                    src="https://cdn.antaranews.com/cache/1200x800/2018/03/real_madrid.png"
-                    width="203"
-                    height="91"
-                    alt="250+ Projects Done"
-                    class="shape"
-                    data-reveal="top"
-                    data-reveal-delay="0.25s"
-                    style="position: relative;
-                           z-index: 2;
-                           clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%);
-                           transition: transform 0.3s ease-out" />
-                  <div class="flag-shadow" 
-                       style="position: absolute;
-                              top: 5px;
-                              left: 5px;
-                              width: 100%;
-                              height: 100%;
-                              background: rgba(0,0,0,0.15);
-                              clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%);
-                              transform: translateZ(-1px);
-                              filter: blur(4px)"></div>
-                </div>
-              </div>
-              <style>
-                @keyframes waveFlag {
-                  0%, 100% {
-                    transform: rotate(-2deg) skew(-1deg, 1deg) translateY(0);
-                  }
-                  50% {
-                    transform: rotate(3deg) skew(3deg, -2deg) translateY(-5px);
-                  }
-                }
-                .flag-wave:hover {
-                  transform: rotate(-1deg) skew(-1deg, 1deg) translateY(-2px);
-                }
-                .flag-wave:hover img {
-                  transform: translateX(2px) rotate(0.5deg);
-                }
-                .flag-container::after {
-                  content: '';
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  right: 0;
-                  bottom: 0;
-                  background: linear-gradient(45deg, 
-                    rgba(255,255,255,0.1) 25%,
-                    transparent 25%,
-                    transparent 50%,
-                    rgba(255,255,255,0.1) 50%,
-                    rgba(255,255,255,0.1) 75%,
-                    transparent 75%);
-                  mix-blend-mode: overlay;
-                  pointer-events: none;
-                }
-              </style>
+              <img
+                src="https://cdn.antaranews.com/cache/1200x800/2018/03/real_madrid.png"
+                width="203"
+                height="91"
+                alt="250+ Projects Done"
+                class="shape"
+                data-reveal="top"
+                data-reveal-delay="0.25s" />
+            </figure>
 
             <div class="hero-content">
               <h1
