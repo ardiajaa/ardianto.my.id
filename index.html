@@ -5,40 +5,220 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- 
-    - primary meta tags
-  -->
-    <title>Ardi - Junior Web Development.</title>
-    <meta name="title" content="Ardi - I'm Junior Web Development." />
-    <meta name="description" content="This is a personal portfolio Ardi" />
+    <!-- Primary meta tags with improved SEO -->
+    <title>Ardi - Junior Web Developer Portfolio | Frontend Developer</title>
+    <meta name="title" content="Ardi - Junior Web Developer Portfolio" />
+    <meta
+      name="description"
+      content="Portfolio of Ardi, a passionate junior web developer specializing in frontend development. Check out my projects and skills." />
+    <meta
+      name="keywords"
+      content="Ardi, junior web developer, portfolio, frontend developer, web development, HTML, CSS, JavaScript, Indonesia developer" />
+    <meta name="author" content="Ardianto" />
 
-    <!-- 
-    - favicon
-  -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourportfolio.com/" />
+    <meta property="og:title" content="Ardi - Junior Web Developer Portfolio" />
+    <meta
+      property="og:description"
+      content="Portfolio of Ardi, a passionate junior web developer specializing in frontend development." />
+    <meta
+      property="og:image"
+      content="https://yourportfolio.com/assets/images/hero-banner.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://yourportfolio.com/" />
+    <meta
+      property="twitter:title"
+      content="Ardi - Junior Web Developer Portfolio" />
+    <meta
+      property="twitter:description"
+      content="Portfolio of Ardi, a passionate junior web developer specializing in frontend development." />
+    <meta
+      property="twitter:image"
+      content="https://yourportfolio.com/assets/images/hero-banner.jpg" />
+
+    <!-- Favicon -->
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
 
-    <!-- 
-    - google font link
-  -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap"
       rel="stylesheet" />
 
-    <!-- 
-    - custom css link
-  -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
 
-    <!-- 
-    - preload images
-  -->
+    <!-- Preload images -->
     <link rel="preload" as="image" href="./assets/images/hero-banner.jpg" />
     <link rel="preload" as="image" href="./assets/images/Blog.svg" />
+
+    <style>
+      /* Improved Music Notification Styles */
+      .music-notification {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .music-notification h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #ffffff;
+        animation: slideDown 0.5s ease;
+      }
+
+      .music-notification p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        opacity: 0.8;
+        animation: slideUp 0.5s ease;
+      }
+
+      .music-options {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+        animation: scaleIn 0.5s ease;
+      }
+
+      .music-btn {
+        padding: 12px 30px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 120px;
+      }
+
+      .music-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .music-btn-yes {
+        background: linear-gradient(135deg, #4caf50, #45a049);
+        color: white;
+      }
+
+      .music-btn-no {
+        background: linear-gradient(135deg, #f44336, #e53935);
+        color: white;
+      }
+
+      .music-player {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: rgba(0, 0, 0, 0.85);
+        padding: 12px 20px;
+        border-radius: 50px;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .music-player:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .music-player button {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 1.3rem;
+        transition: transform 0.2s ease;
+      }
+
+      .music-player button:hover {
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 768px) {
+        .music-notification h2 {
+          font-size: 1.8rem;
+        }
+
+        .music-options {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .music-btn {
+          width: 100%;
+          padding: 15px 30px;
+        }
+
+        .music-player {
+          bottom: 20px;
+          right: 20px;
+          font-size: 0.9rem;
+          padding: 10px 15px;
+        }
+      }
+    </style>
   </head>
 
   <body>
+    <!-- Music Notification Popup -->
+    <div class="music-notification" id="musicNotification">
+      <h2>Apakah Anda Ingin Memutar Musik?</h2>
+      <p>
+        Background music akan membuat pengalaman browsing lebih menyenangkan
+      </p>
+      <div class="music-options">
+        <button class="music-btn music-btn-yes" id="playMusicBtn">Iya</button>
+        <button class="music-btn music-btn-no" id="declineMusicBtn">
+          Tidak
+        </button>
+      </div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player" id="musicPlayer" style="display: none">
+      <span>Now Playing: Hala Madrid</span>
+      <button id="toggleMusicBtn">⏸️</button>
+      <button id="stopMusicBtn">⏹️</button>
+    </div>
+
     <!-- 
     - #HEADER
   -->
@@ -168,7 +348,8 @@
                 overflow: hidden;
               "
               onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 20px 50px hsla(240, 11%, 10%, 0.2)'; this.querySelector('img.w-100').style.transform='scale(1.1)';"
-              onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 15px 35px hsla(240, 11%, 10%, 0.15)'; this.querySelector('img.w-100').style.transform='scale(1)';">              <img
+              onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 15px 35px hsla(240, 11%, 10%, 0.15)'; this.querySelector('img.w-100').style.transform='scale(1)';">
+              <img
                 src="./assets/images/hero-banner.jpg"
                 width="400"
                 height="400"
@@ -200,18 +381,29 @@
                   animation: wave 4s infinite alternate;
                   transform-origin: bottom right;
                   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+                  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
                   z-index: 1;
                 "
                 onmouseover="this.style.animation = 'wave 2s infinite alternate'; this.style.transform = 'scale(1.1) rotate(5deg)';"
-                onmouseout="this.style.animation = 'wave 4s infinite alternate'; this.style.transform = 'scale(1) rotate(0deg)';"> 
+                onmouseout="this.style.animation = 'wave 4s infinite alternate'; this.style.transform = 'scale(1) rotate(0deg)';" />
               <style>
                 @keyframes wave {
-                  0% { transform: rotate(-2deg) translateY(0) skew(1deg, 0deg); }
-                  25% { transform: rotate(3deg) translateY(-2px) skew(-1deg, 1deg); }
-                  50% { transform: rotate(-3deg) translateY(2px) skew(1deg, -1deg); }
-                  75% { transform: rotate(2deg) translateY(-1px) skew(-0.5deg, 0.5deg); }
-                  100% { transform: rotate(-1deg) translateY(0) skew(0.5deg, -0.5deg); }
+                  0% {
+                    transform: rotate(-2deg) translateY(0) skew(1deg, 0deg);
+                  }
+                  25% {
+                    transform: rotate(3deg) translateY(-2px) skew(-1deg, 1deg);
+                  }
+                  50% {
+                    transform: rotate(-3deg) translateY(2px) skew(1deg, -1deg);
+                  }
+                  75% {
+                    transform: rotate(2deg) translateY(-1px)
+                      skew(-0.5deg, 0.5deg);
+                  }
+                  100% {
+                    transform: rotate(-1deg) translateY(0) skew(0.5deg, -0.5deg);
+                  }
                 }
               </style>
             </figure>
@@ -614,6 +806,7 @@
     <!-- 
     - custom js link
   -->
+
     <script src="./assets/js/script.js"></script>
     <!-- 
     - ionicon link
@@ -624,5 +817,83 @@
     <script
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const musicNotification = document.getElementById("musicNotification");
+        const playMusicBtn = document.getElementById("playMusicBtn");
+        const declineMusicBtn = document.getElementById("declineMusicBtn");
+        const musicPlayer = document.getElementById("musicPlayer");
+        const toggleMusicBtn = document.getElementById("toggleMusicBtn");
+        const stopMusicBtn = document.getElementById("stopMusicBtn");
+
+        let backgroundMusic;
+        let isFirstPlay = true;
+
+        // Check user preference
+        const musicChoice = localStorage.getItem("musicChoice");
+
+        if (musicChoice === "accepted") {
+          initializeMusic();
+          musicNotification.style.display = "none";
+          musicPlayer.style.display = "flex";
+        } else if (musicChoice === "declined") {
+          musicNotification.style.display = "none";
+        } else {
+          musicNotification.style.display = "flex";
+        }
+
+        function initializeMusic() {
+          backgroundMusic = new Audio("./assets/mp3/madrid.mp3");
+          backgroundMusic.loop = true;
+          backgroundMusic.volume = 0.3;
+
+          // Handle audio play promise
+          const playPromise = backgroundMusic.play();
+
+          if (playPromise !== undefined) {
+            playPromise.catch((error) => {
+              console.log("Audio playback failed:", error);
+            });
+          }
+        }
+
+        // Event listeners
+        playMusicBtn.addEventListener("click", function () {
+          localStorage.setItem("musicChoice", "accepted");
+          musicNotification.style.display = "none";
+          initializeMusic();
+          musicPlayer.style.display = "flex";
+        });
+
+        declineMusicBtn.addEventListener("click", function () {
+          localStorage.setItem("musicChoice", "declined");
+          musicNotification.style.display = "none";
+        });
+
+        toggleMusicBtn.addEventListener("click", function () {
+          if (backgroundMusic.paused) {
+            backgroundMusic.play();
+            toggleMusicBtn.textContent = "⏸️";
+          } else {
+            backgroundMusic.pause();
+            toggleMusicBtn.textContent = "▶️";
+          }
+        });
+
+        stopMusicBtn.addEventListener("click", function () {
+          backgroundMusic.pause();
+          backgroundMusic.currentTime = 0;
+          toggleMusicBtn.textContent = "▶️";
+          localStorage.setItem("musicChoice", "declined");
+        });
+
+        // Persist music player visibility
+        window.addEventListener("beforeunload", function () {
+          if (backgroundMusic && !backgroundMusic.paused) {
+            localStorage.setItem("musicChoice", "accepted");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
