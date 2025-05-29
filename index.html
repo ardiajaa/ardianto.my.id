@@ -68,6 +68,9 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- SweetAlert2 for beautiful alerts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Structured Data (Schema.org) - Helps search engines understand content -->
     <script type="application/ld+json">
     {
@@ -171,7 +174,7 @@
           gap: 12px;
           min-width: 220px;
         }
-        
+
         .music-player button {
           font-size: 1rem;
           width: 32px;
@@ -186,8 +189,8 @@
     <!-- Music Player -->
     <div class="music-player" id="musicPlayer">
       <span><i class="fas fa-music"></i> Hala Madrid - Real Madrid Anthem</span>
-      <button id="toggleMusicBtn"><i class="fas fa-play"></i></button>
-      <button id="stopMusicBtn"><i class="fas fa-stop"></i></button>
+      <button id="toggleMusicBtn" aria-label="Putar atau Jeda Musik"><i class="fas fa-play"></i></button>
+      <button id="stopMusicBtn" aria-label="Hentikan Musik"><i class="fas fa-stop"></i></button>
     </div>
 
     <!--
@@ -260,15 +263,15 @@
 
           <ul class="social-list">
             <li>
-              <a href="https://github.com/ardiajaa/" class="social-link">
+              <a href="https://github.com/ardiajaa/" class="social-link" target="_blank" rel="noopener noreferrer">
                 <ion-icon name="logo-github"></ion-icon>
               </a>
             </li>
 
             <li>
               <a
-                href="www.linkedin.com/in/achmad-rizky-putra-ardianto0"
-                class="social-link">
+                href="https://www.linkedin.com/in/achmad-rizky-putra-ardianto0"
+                class="social-link" target="_blank" rel="noopener noreferrer">
                 <ion-icon name="logo-linkedin"></ion-icon>
               </a>
             </li>
@@ -276,13 +279,13 @@
             <li>
               <a
                 href="https://www.instagram.com/ardizamanmegalitikum/"
-                class="social-link">
+                class="social-link" target="_blank" rel="noopener noreferrer">
                 <ion-icon name="logo-instagram"></ion-icon>
               </a>
             </li>
 
             <li>
-              <a href="https://www.youtube.com/@Arezaja" class="social-link">
+              <a href="https://www.youtube.com/@Arezaja" class="social-link" target="_blank" rel="noopener noreferrer">
                 <ion-icon name="logo-youtube"></ion-icon>
               </a>
             </li>
@@ -743,15 +746,15 @@
 
         <ul class="social-list">
           <li>
-            <a href="https://github.com/ardiajaa/" class="social-link">
+            <a href="https://github.com/ardiajaa/" class="social-link" target="_blank" rel="noopener noreferrer">
               <ion-icon name="logo-github"></ion-icon>
             </a>
           </li>
 
           <li>
             <a
-              href="www.linkedin.com/in/achmad-rizky-putra-ardianto0"
-              class="social-link">
+              href="https://www.linkedin.com/in/achmad-rizky-putra-ardianto0"
+              class="social-link" target="_blank" rel="noopener noreferrer">
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
           </li>
@@ -759,13 +762,13 @@
           <li>
             <a
               href="https://www.instagram.com/ardizamanmegalitikum/"
-              class="social-link">
+              class="social-link" target="_blank" rel="noopener noreferrer">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </li>
 
           <li>
-            <a href="https://www.youtube.com/@Arezaja" class="social-link">
+            <a href="https://www.youtube.com/@Arezaja" class="social-link" target="_blank" rel="noopener noreferrer">
               <ion-icon name="logo-youtube"></ion-icon>
             </a>
           </li>
@@ -792,6 +795,7 @@
         const musicPlayer = document.getElementById("musicPlayer");
         const toggleMusicBtn = document.getElementById("toggleMusicBtn");
         const stopMusicBtn = document.getElementById("stopMusicBtn");
+        const internalLinks = document.querySelectorAll('a[href^="/"], a[href^="./"], a[href^="../"], a.logo, a.navbar-link'); // Select internal links
 
         let backgroundMusic;
         let isDragging = false;
@@ -821,15 +825,24 @@
               playPromise
                 .then(() => {
                   toggleMusicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                  toggleMusicBtn.setAttribute('aria-label', 'Jeda Musik'); // Update aria-label
                 })
                 .catch((error) => {
                   console.log("Gagal memutar audio:", error);
                   // Handle error, mungkin tampilkan pesan ke pengguna
+                  Swal.fire({
+                    title: 'Gagal Memutar Musik',
+                    text: 'Browser Anda mungkin memblokir pemutaran otomatis. Silakan coba lagi.',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3f78e0'
+                  });
                 });
             }
           } else {
             backgroundMusic.pause();
             toggleMusicBtn.innerHTML = '<i class="fas fa-play"></i>';
+            toggleMusicBtn.setAttribute('aria-label', 'Putar Musik'); // Update aria-label
           }
         });
 
@@ -837,7 +850,44 @@
           backgroundMusic.pause();
           backgroundMusic.currentTime = 0;
           toggleMusicBtn.innerHTML = '<i class="fas fa-play"></i>';
+          toggleMusicBtn.setAttribute('aria-label', 'Putar Musik'); // Update aria-label
         });
+
+        // --- Warning for navigation ---
+        internalLinks.forEach(link => {
+            // Check if the link is not the current page
+            if (link.href !== window.location.href) {
+                link.addEventListener('click', function(event) {
+                    // Check if music is playing
+                    if (backgroundMusic && !backgroundMusic.paused) {
+                        event.preventDefault(); // Prevent default navigation
+
+                        Swal.fire({
+                            title: 'Perhatian',
+                            text: 'Musik akan berhenti berputar jika Anda pindah halaman. Lanjutkan?',
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3f78e0',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Lanjutkan',
+                            cancelButtonText: 'Batal',
+                            customClass: {
+                              popup: 'swal-custom', // Use existing custom class if defined
+                              title: 'swal-title',
+                              content: 'swal-text'
+                            }
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // User confirmed, proceed with navigation
+                                window.location.href = link.href;
+                            }
+                        });
+                    }
+                    // If music is paused or not initialized, default navigation proceeds
+                });
+            }
+        });
+
 
         // --- Drag functionality for music player ---
 
@@ -889,7 +939,10 @@
           if (!isDragging) return;
 
           isDragging = false;
-          musicPlayer.style.transition = 'bottom 0.3s ease, right 0.3s ease, box-shadow 0.3s ease'; // Re-enable transition
+          // Re-enable transition, but only for transform/box-shadow if needed,
+          // position changes should ideally be instant after drag ends.
+          // Let's keep the original transition for hover effects etc.
+          musicPlayer.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'; // Restore original transition
           musicPlayer.style.cursor = 'grab'; // Restore cursor
 
           // Optional: You might want to save the final position (xOffset, yOffset)
