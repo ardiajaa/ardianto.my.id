@@ -5,43 +5,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--
-    - tag meta utama
-  -->
-    <title>Contact - Ardi</title>
-    <meta name="title" content="Contact - Ardi" />
-    <meta
-      name="description"
-      content="Hubungi Ardi untuk kolaborasi atau pertanyaan." />
+    <!-- Primary Meta Tags for SEO -->
+    <title>Kontak Ardianto - Junior Web Developer Indonesia | Hubungi Saya</title>
+    <meta name="title" content="Kontak Ardianto - Junior Web Developer Indonesia | Hubungi Saya" />
+    <meta 
+      name="description" 
+      content="Hubungi Ardianto, Junior Web Developer profesional di Indonesia untuk kolaborasi proyek, konsultasi web development, atau pertanyaan seputar pembuatan website." />
+    <meta 
+      name="keywords" 
+      content="kontak ardianto, web developer indonesia, jasa pembuatan website, frontend developer, portfolio web developer, hubungi developer, jasa web development" />
+    <meta name="author" content="Ardianto" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.ardianto.my.id/contact/" />
 
-    <!--
-    - favicon
-  -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.ardianto.my.id/contact/" />
+    <meta property="og:title" content="Kontak Ardianto - Junior Web Developer Indonesia | Hubungi Saya" />
+    <meta 
+      property="og:description" 
+      content="Hubungi Ardianto, Junior Web Developer profesional di Indonesia untuk kolaborasi proyek, konsultasi web development, atau pertanyaan seputar pembuatan website." />
+    <meta 
+      property="og:image" 
+      content="https://www.ardianto.my.id/assets/images/hero-banner.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.ardianto.my.id/contact/" />
+    <meta property="twitter:title" content="Kontak Ardianto - Junior Web Developer Indonesia | Hubungi Saya" />
+    <meta 
+      property="twitter:description" 
+      content="Hubungi Ardianto, Junior Web Developer profesional di Indonesia untuk kolaborasi proyek, konsultasi web development, atau pertanyaan seputar pembuatan website." />
+    <meta 
+      property="twitter:image" 
+      content="https://www.ardianto.my.id/assets/images/hero-banner.jpg" />
+
+    <!-- Favicon -->
     <link rel="shortcut icon" href="../favicon.svg" type="image/svg+xml" />
 
-    <!--
-    - link google font
-  -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap"
       rel="stylesheet" />
 
-    <!--
-    - link css kustom
-  -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/style.css" />
 
-    <!--
-    - preload gambar
-  -->
+    <!-- Preload Images -->
     <link rel="preload" as="image" href="../assets/images/hero-banner.jpg" />
     <link rel="preload" as="image" href="../assets/images/Blog.svg" />
-    <!-- Meskipun tidak digunakan di halaman ini, biarkan untuk konsistensi jika diperlukan -->
 
-    <!-- Style untuk Notifikasi Pop-up Tengah Layar -->
+    <!-- Style untuk Notifikasi Pop-up Tengah Layar dan Loading -->
     <style>
+      #popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+        z-index: 1999; /* Below popup, above content */
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+      }
+
+      #popup-overlay.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
       #notification-popup {
         position: fixed;
         top: 50%;
@@ -79,22 +114,28 @@
         transform: translate(-50%, -50%) scale(1);
       }
 
-      #notification-popup ion-icon {
+      #notification-popup .popup-icon {
         font-size: 5rem;
         color: white;
         background: rgba(255, 255, 255, 0.2);
         border-radius: 50%;
         padding: 15px;
         margin-bottom: 15px;
-        animation: pulse-soft 1.5s infinite;
+        /* animation: pulse-soft 1.5s infinite; /* Keep pulse for success */
       }
 
-      #notification-popup span {
+      #notification-popup .popup-text {
         line-height: 1.6;
         font-size: var(--fs-4);
         font-weight: 500;
         letter-spacing: 0.5px;
         color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* Loading State Styles */
+      #notification-popup.loading .popup-icon {
+        animation: spin 1.5s linear infinite; /* Spinner animation */
+        padding: 15px; /* Ensure padding is consistent */
       }
 
       @keyframes pulse-soft {
@@ -105,6 +146,15 @@
         50% {
           transform: scale(1.05);
           box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
         }
       }
     </style>
@@ -349,7 +399,7 @@
                   required
                   class="input-field"></textarea>
 
-                <button type="submit" class="btn btn-secondary">
+                <button type="submit" class="btn btn-secondary" id="submitBtn">
                   Send Message
                 </button>
               </form>
@@ -424,12 +474,10 @@
     </main>
 
     <!-- Elemen Notifikasi Tengah Layar -->
+    <div id="popup-overlay"></div>
     <div id="notification-popup">
-      <ion-icon name="checkmark-circle-outline"></ion-icon>
-      <span
-        >Your message has been sent successfully! Thank you for your
-        feedback.</span
-      >
+      <ion-icon name="sync-outline" class="popup-icon"></ion-icon>
+      <span class="popup-text">Sending message...</span>
     </div>
 
     <!--
@@ -500,26 +548,61 @@
     <script>
       const contactForm = document.getElementById("contactForm");
       const notificationPopup = document.getElementById("notification-popup");
+      const popupOverlay = document.getElementById("popup-overlay");
+      const popupIcon = notificationPopup.querySelector(".popup-icon");
+      const popupText = notificationPopup.querySelector(".popup-text");
+      const submitBtn = document.getElementById("submitBtn");
 
       contactForm.addEventListener("submit", function (event) {
         event.preventDefault(); // Mencegah pengiriman form standar
 
-        // Simulasi pengiriman data (jika ada backend, proses di sini)
-        // Untuk contoh ini, kita langsung tampilkan notifikasi
+        // Disable button and show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending..."; // Optional: change button text
+        notificationPopup.classList.add("show", "loading");
+        popupOverlay.classList.add("show");
+        popupIcon.setAttribute("name", "sync-outline"); // Loading icon
+        popupText.textContent = "Sending message...";
 
-        // Tampilkan notifikasi
-        notificationPopup.classList.add("show");
-
-        // Kosongkan form setelah beberapa saat (opsional, tapi baik untuk UX)
-        // Diberi sedikit jeda agar user sempat melihat inputnya sebelum reset
+        // Simulate sending data (replace with actual fetch/AJAX call)
         setTimeout(() => {
+          // --- Simulation of successful response ---
+
+          // Hide loading state and show success state
+          notificationPopup.classList.remove("loading");
+          popupIcon.setAttribute("name", "checkmark-circle-outline"); // Success icon
+          popupIcon.style.animation = "pulse-soft 1.5s infinite"; // Add pulse animation back
+          popupText.textContent =
+            "Your message has been sent successfully! Thank you for your feedback.";
+
+          // Reset form
           contactForm.reset();
-        }, 300);
 
-        // Sembunyikan notifikasi setelah beberapa detik
-        setTimeout(() => {
-          notificationPopup.classList.remove("show");
-        }, 5000); // Notifikasi akan hilang setelah 5 detik
+          // Re-enable button
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Send Message"; // Reset button text
+
+          // Hide notification and overlay after a few seconds
+          setTimeout(() => {
+            notificationPopup.classList.remove("show");
+            popupOverlay.classList.remove("show");
+            popupIcon.style.animation = ""; // Remove pulse animation when hidden
+          }, 4000); // Notification will hide after 4 seconds
+
+          // --- End of simulation ---
+
+          // If there was an error, you would handle it here:
+          // notificationPopup.classList.remove("loading");
+          // popupIcon.setAttribute("name", "close-circle-outline"); // Error icon
+          // popupIcon.style.animation = ""; // No animation for error
+          // popupText.textContent = "Failed to send message. Please try again.";
+          // submitBtn.disabled = false;
+          // submitBtn.textContent = "Send Message";
+          // setTimeout(() => {
+          //   notificationPopup.classList.remove("show");
+          //   popupOverlay.classList.remove("show");
+          // }, 5000); // Error notification stays longer maybe?
+        }, 2000); // Simulate a 2-second delay for sending
       });
     </script>
   </body>

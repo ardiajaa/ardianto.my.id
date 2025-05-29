@@ -1,44 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary meta tags with improved SEO -->
-    <title>Ardi - Junior Web Developer Portfolio | Frontend Developer</title>
-    <meta name="title" content="Ardi - Junior Web Developer Portfolio" />
+    <!-- Primary meta tags for SEO -->
+    <title>Ardianto - Junior Web Developer Portfolio | Frontend Developer Indonesia</title>
+    <meta name="title" content="Ardianto - Junior Web Developer Portfolio | Frontend Developer Indonesia" />
     <meta
       name="description"
-      content="Portfolio of Ardi, a passionate junior web developer specializing in frontend development. Check out my projects and skills." />
+      content="Portfolio resmi Ardianto, seorang junior web developer yang bersemangat di bidang frontend development. Temukan proyek-proyek dan keahlian saya dalam membangun website modern dan responsif." />
     <meta
       name="keywords"
-      content="Ardi, junior web developer, portfolio, frontend developer, web development, HTML, CSS, JavaScript, Indonesia developer" />
+      content="Ardianto, junior web developer, portfolio, frontend developer, web development, HTML, CSS, JavaScript, React, Vue, Node.js, developer Indonesia, programmer Indonesia, jasa pembuatan website" />
     <meta name="author" content="Ardianto" />
+
+    <!-- Canonical URL to prevent duplicate content issues -->
+    <link rel="canonical" href="https://www.ardianto.my.id/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yourportfolio.com/" />
-    <meta property="og:title" content="Ardi - Junior Web Developer Portfolio" />
+    <meta property="og:url" content="https://www.ardianto.my.id/" />
+    <meta property="og:title" content="Ardianto - Junior Web Developer Portfolio | Frontend Developer Indonesia" />
     <meta
       property="og:description"
-      content="Portfolio of Ardi, a passionate junior web developer specializing in frontend development." />
+      content="Portfolio resmi Ardianto, seorang junior web developer yang bersemangat di bidang frontend development. Temukan proyek-proyek dan keahlian saya." />
     <meta
       property="og:image"
-      content="https://yourportfolio.com/assets/images/hero-banner.jpg" />
+      content="https://www.ardianto.my.id/assets/images/hero-banner.jpg" />
+    <meta property="og:image:alt" content="Foto profil Ardianto" />
+    <meta property="og:locale" content="id_ID" />
+
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://yourportfolio.com/" />
+    <meta property="twitter:url" content="https://www.ardianto.my.id/" />
     <meta
       property="twitter:title"
-      content="Ardi - Junior Web Developer Portfolio" />
+      content="Ardianto - Junior Web Developer Portfolio | Frontend Developer Indonesia" />
     <meta
       property="twitter:description"
-      content="Portfolio of Ardi, a passionate junior web developer specializing in frontend development." />
+      content="Portfolio resmi Ardianto, seorang junior web developer yang bersemangat di bidang frontend development. Temukan proyek-proyek dan keahlian saya." />
     <meta
       property="twitter:image"
-      content="https://yourportfolio.com/assets/images/hero-banner.jpg" />
+      content="https://www.ardianto.my.id/assets/images/hero-banner.jpg" />
+    <meta property="twitter:image:alt" content="Foto profil Ardianto" />
+
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
@@ -53,173 +61,136 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
 
-    <!-- Preload images -->
+    <!-- Preload images for performance -->
     <link rel="preload" as="image" href="./assets/images/hero-banner.jpg" />
     <link rel="preload" as="image" href="./assets/images/Blog.svg" />
 
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Structured Data (Schema.org) - Helps search engines understand content -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ardianto",
+      "url": "https://www.ardianto.my.id/",
+      "sameAs": [
+        "https://github.com/ardiajaa",
+        "https://www.linkedin.com/in/ardianto-rizky-saputra-b1b3b321b/",
+        "https://www.instagram.com/ardiajaa/",
+        "https://www.youtube.com/@Arezaja"
+      ],
+      "jobTitle": "Junior Web Developer",
+      "description": "Portfolio resmi Ardianto, seorang junior web developer yang bersemangat di bidang frontend development.",
+      "image": "https://www.ardianto.my.id/assets/images/hero-banner.jpg"
+    }
+    </script>
+
     <style>
-      /* Improved Music Notification Styles */
-      .music-notification {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.95);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        color: white;
-        text-align: center;
-        padding: 20px;
-        box-sizing: border-box;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        animation: fadeIn 0.5s ease;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      .music-notification h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: #ffffff;
-        animation: slideDown 0.5s ease;
-      }
-
-      .music-notification p {
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
-        opacity: 0.8;
-        animation: slideUp 0.5s ease;
-      }
-
-      .music-options {
-        display: flex;
-        gap: 20px;
-        margin-top: 20px;
-        animation: scaleIn 0.5s ease;
-      }
-
-      .music-btn {
-        padding: 12px 30px;
-        border: none;
-        border-radius: 50px;
-        font-size: 1rem;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        min-width: 120px;
-      }
-
-      .music-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      }
-
-      .music-btn-yes {
-        background: linear-gradient(135deg, #4caf50, #45a049);
-        color: white;
-      }
-
-      .music-btn-no {
-        background: linear-gradient(135deg, #f44336, #e53935);
-        color: white;
-      }
-
+      /* Music Player Styles */
       .music-player {
         position: fixed;
         bottom: 30px;
         right: 30px;
-        background-color: rgba(0, 0, 0, 0.85);
-        padding: 12px 20px;
-        border-radius: 50px;
+        background: linear-gradient(145deg, #1e1e1e, #121212);
+        padding: 15px 25px;
+        border-radius: 25px;
         color: white;
         display: flex;
         align-items: center;
         gap: 15px;
         z-index: 1000;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: grab;
+        font-size: 1rem;
+        min-width: 250px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       .music-player:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      }
+
+      .music-player:active {
+        cursor: grabbing;
+        transform: scale(0.98);
+      }
+
+      .music-player span {
+        flex-grow: 1;
+        margin-right: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 500;
+        letter-spacing: 0.5px;
       }
 
       .music-player button {
-        background: none;
+        background: rgba(255, 255, 255, 0.1);
         border: none;
         color: white;
         cursor: pointer;
-        font-size: 1.3rem;
-        transition: transform 0.2s ease;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        padding: 8px;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .music-player button:hover {
+        background: #1db954;
         transform: scale(1.1);
+        box-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+      }
+
+      .music-player button#stopMusicBtn {
+        background: rgba(255, 69, 58, 0.1);
+      }
+
+      .music-player button#stopMusicBtn:hover {
+        background: #ff453a;
+        box-shadow: 0 0 10px rgba(255, 69, 58, 0.5);
       }
 
       @media (max-width: 768px) {
-        .music-notification h2 {
-          font-size: 1.8rem;
-        }
-
-        .music-options {
-          flex-direction: column;
-          gap: 15px;
-        }
-
-        .music-btn {
-          width: 100%;
-          padding: 15px 30px;
-        }
-
         .music-player {
           bottom: 20px;
           right: 20px;
           font-size: 0.9rem;
-          padding: 10px 15px;
+          padding: 12px 20px;
+          gap: 12px;
+          min-width: 220px;
+        }
+        
+        .music-player button {
+          font-size: 1rem;
+          width: 32px;
+          height: 32px;
+          padding: 6px;
         }
       }
     </style>
   </head>
 
   <body>
-    <!-- Music Notification Popup -->
-    <div class="music-notification" id="musicNotification">
-      <h2>Apakah Anda Ingin Memutar Musik?</h2>
-      <p>
-        Background music akan membuat pengalaman browsing lebih menyenangkan
-      </p>
-      <div class="music-options">
-        <button class="music-btn music-btn-yes" id="playMusicBtn">Iya</button>
-        <button class="music-btn music-btn-no" id="declineMusicBtn">
-          Tidak
-        </button>
-      </div>
-    </div>
-
     <!-- Music Player -->
-    <div class="music-player" id="musicPlayer" style="display: none">
-      <span>Now Playing: Hala Madrid</span>
-      <button id="toggleMusicBtn">⏸️</button>
-      <button id="stopMusicBtn">⏹️</button>
+    <div class="music-player" id="musicPlayer">
+      <span><i class="fas fa-music"></i> Hala Madrid - Real Madrid Anthem</span>
+      <button id="toggleMusicBtn"><i class="fas fa-play"></i></button>
+      <button id="stopMusicBtn"><i class="fas fa-stop"></i></button>
     </div>
 
-    <!-- 
+    <!--
     - #HEADER
   -->
 
@@ -328,7 +299,7 @@
 
     <main>
       <article>
-        <!-- 
+        <!--
         - #HERO
       -->
 
@@ -434,7 +405,7 @@
           </div>
         </section>
 
-        <!-- 
+        <!--
         - #ABOUT
       -->
 
@@ -707,7 +678,7 @@
               </div>
             </li>
 
-            
+
 
           </ul>
 
@@ -718,7 +689,6 @@
 
 
 
-       
         - #CONTACT
       -->
 
@@ -763,7 +733,7 @@
       </article>
     </main>
 
-    <!-- 
+    <!--
     - #FOOTER
   -->
 
@@ -803,12 +773,12 @@
       </div>
     </footer>
 
-    <!-- 
+    <!--
     - custom js link
   -->
 
     <script src="./assets/js/script.js"></script>
-    <!-- 
+    <!--
     - ionicon link
   -->
     <script
@@ -819,80 +789,159 @@
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const musicNotification = document.getElementById("musicNotification");
-        const playMusicBtn = document.getElementById("playMusicBtn");
-        const declineMusicBtn = document.getElementById("declineMusicBtn");
         const musicPlayer = document.getElementById("musicPlayer");
         const toggleMusicBtn = document.getElementById("toggleMusicBtn");
         const stopMusicBtn = document.getElementById("stopMusicBtn");
 
         let backgroundMusic;
-        let isFirstPlay = true;
+        let isDragging = false;
+        let initialX;
+        let initialY;
+        let xOffset = 0;
+        let yOffset = 0;
 
-        // Check user preference
-        const musicChoice = localStorage.getItem("musicChoice");
-
-        if (musicChoice === "accepted") {
-          initializeMusic();
-          musicNotification.style.display = "none";
-          musicPlayer.style.display = "flex";
-        } else if (musicChoice === "declined") {
-          musicNotification.style.display = "none";
-        } else {
-          musicNotification.style.display = "flex";
-        }
+        // Initialize music player and load music
+        initializeMusic();
 
         function initializeMusic() {
           backgroundMusic = new Audio("./assets/mp3/madrid.mp3");
           backgroundMusic.loop = true;
           backgroundMusic.volume = 0.3;
 
-          // Handle audio play promise
-          const playPromise = backgroundMusic.play();
-
-          if (playPromise !== undefined) {
-            playPromise.catch((error) => {
-              console.log("Audio playback failed:", error);
-            });
-          }
+          // Music will not auto-play due to browser policies,
+          // it will start when the user interacts (e.g., clicks play button)
+          // The player is visible by default now.
         }
 
-        // Event listeners
-        playMusicBtn.addEventListener("click", function () {
-          localStorage.setItem("musicChoice", "accepted");
-          musicNotification.style.display = "none";
-          initializeMusic();
-          musicPlayer.style.display = "flex";
-        });
-
-        declineMusicBtn.addEventListener("click", function () {
-          localStorage.setItem("musicChoice", "declined");
-          musicNotification.style.display = "none";
-        });
-
+        // Event listeners untuk kontrol musik
         toggleMusicBtn.addEventListener("click", function () {
           if (backgroundMusic.paused) {
-            backgroundMusic.play();
-            toggleMusicBtn.textContent = "⏸️";
+            const playPromise = backgroundMusic.play();
+            if (playPromise !== undefined) {
+              playPromise
+                .then(() => {
+                  toggleMusicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                })
+                .catch((error) => {
+                  console.log("Gagal memutar audio:", error);
+                  // Handle error, mungkin tampilkan pesan ke pengguna
+                });
+            }
           } else {
             backgroundMusic.pause();
-            toggleMusicBtn.textContent = "▶️";
+            toggleMusicBtn.innerHTML = '<i class="fas fa-play"></i>';
           }
         });
 
         stopMusicBtn.addEventListener("click", function () {
           backgroundMusic.pause();
           backgroundMusic.currentTime = 0;
-          toggleMusicBtn.textContent = "▶️";
-          localStorage.setItem("musicChoice", "declined");
+          toggleMusicBtn.innerHTML = '<i class="fas fa-play"></i>';
         });
 
-        // Persist music player visibility
-        window.addEventListener("beforeunload", function () {
-          if (backgroundMusic && !backgroundMusic.paused) {
-            localStorage.setItem("musicChoice", "accepted");
+        // --- Drag functionality for music player ---
+
+        // Helper function to get event coordinates (handles mouse and touch)
+        function getEventCoords(e) {
+          if (e.touches) {
+            return { x: e.touches[0].clientX, y: e.touches[0].clientY };
           }
-        });
+          return { x: e.clientX, y: e.clientY };
+        }
+
+        function dragStart(e) {
+          // Prevent dragging if clicking on buttons or other interactive elements
+          if (e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+            return;
+          }
+
+          // Prevent default touch behavior like scrolling
+          if (e.type === "touchstart") {
+            e.preventDefault();
+          }
+
+          const coords = getEventCoords(e);
+
+          // Get the current position of the element
+          const rect = musicPlayer.getBoundingClientRect();
+
+          // Set the element's position to fixed with top/left based on its current position
+          // This is necessary because the initial CSS uses bottom/right
+          musicPlayer.style.position = 'fixed'; // Ensure it's fixed
+          musicPlayer.style.top = rect.top + 'px';
+          musicPlayer.style.left = rect.left + 'px';
+          musicPlayer.style.bottom = 'auto'; // Remove bottom/right constraints
+          musicPlayer.style.right = 'auto';
+
+          // Calculate the initial offset from the mouse/touch point to the element's top-left corner
+          initialX = coords.x;
+          initialY = coords.y;
+          xOffset = rect.left; // Store the element's current left position
+          yOffset = rect.top;  // Store the element's current top position
+
+
+          isDragging = true;
+          musicPlayer.style.transition = 'none'; // Disable transition while dragging
+          musicPlayer.style.cursor = 'grabbing'; // Change cursor while dragging
+        }
+
+        function dragEnd(e) {
+          if (!isDragging) return;
+
+          isDragging = false;
+          musicPlayer.style.transition = 'bottom 0.3s ease, right 0.3s ease, box-shadow 0.3s ease'; // Re-enable transition
+          musicPlayer.style.cursor = 'grab'; // Restore cursor
+
+          // Optional: You might want to save the final position (xOffset, yOffset)
+          // to local storage here so it persists across page loads.
+        }
+
+        function drag(e) {
+          if (!isDragging) return;
+          // Prevent default behavior (like text selection or scrolling on touch)
+          e.preventDefault();
+
+          const coords = getEventCoords(e);
+
+          // Calculate the difference between the current mouse/touch position and the initial position
+          const dx = coords.x - initialX;
+          const dy = coords.y - initialY;
+
+          // Calculate the new position by adding the difference to the element's initial position
+          const newLeft = xOffset + dx;
+          const newTop = yOffset + dy;
+
+          // Update the element's position
+          musicPlayer.style.left = newLeft + 'px';
+          musicPlayer.style.top = newTop + 'px';
+        }
+
+        // Add event listeners for both mouse and touch
+        musicPlayer.addEventListener("mousedown", dragStart);
+        musicPlayer.addEventListener("touchstart", dragStart); // Add touch start
+
+        document.addEventListener("mouseup", dragEnd);
+        document.addEventListener("touchend", dragEnd);     // Add touch end
+        document.addEventListener("mouseleave", dragEnd);   // End drag if mouse leaves window
+
+        document.addEventListener("mousemove", drag);
+        document.addEventListener("touchmove", drag);       // Add touch move
+
+        // Initial setup: Ensure the player uses top/left for dragging after initial load
+        // We need to calculate its initial top/left based on the CSS bottom/right
+        // A small timeout ensures the element is rendered and positioned correctly before calculation
+         setTimeout(() => {
+             const rect = musicPlayer.getBoundingClientRect();
+             musicPlayer.style.top = rect.top + 'px';
+             musicPlayer.style.left = rect.left + 'px';
+             musicPlayer.style.bottom = 'auto';
+             musicPlayer.style.right = 'auto';
+             // Store this initial position as the starting point for future drags
+             xOffset = rect.left;
+             yOffset = rect.top;
+         }, 0); // Use a small timeout to ensure layout is complete
+
+
       });
     </script>
   </body>
