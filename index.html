@@ -831,8 +831,8 @@
                   console.log("Gagal memutar audio:", error);
                   // Handle error, mungkin tampilkan pesan ke pengguna
                   Swal.fire({
-                    title: 'Gagal Memutar Musik',
-                    text: 'Browser Anda mungkin memblokir pemutaran otomatis. Silakan coba lagi.',
+                    title: 'Failed to Play Music',
+                    text: 'Your browser may be blocking autoplay. Please try again.',
                     icon: 'error',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#3f78e0'
@@ -863,14 +863,14 @@
                         event.preventDefault(); // Prevent default navigation
 
                         Swal.fire({
-                            title: 'Perhatian',
-                            text: 'Musik akan berhenti berputar jika Anda pindah halaman. Lanjutkan?',
+                            title: 'Attention',
+                            text: 'The music will stop playing if you navigate to another page. Continue?',
                             icon: 'warning',
                             showCancelButton: true,
                             confirmButtonColor: '#3f78e0',
                             cancelButtonColor: '#d33',
-                            confirmButtonText: 'Lanjutkan',
-                            cancelButtonText: 'Batal',
+                            confirmButtonText: 'Continue',
+                            cancelButtonText: 'Cancel',
                             customClass: {
                               popup: 'swal-custom', // Use existing custom class if defined
                               title: 'swal-title',
