@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary meta tags for SEO -->
-    <title>Ardianto - Junior Web Developer Portfolio | Frontend Developer Indonesia</title>
-    <meta name="title" content="Ardianto - Junior Web Developer Portfolio | Frontend Developer Indonesia" />
+    <title>Ardianto - Junior Web Developer</title>
+    <meta name="title" content="Ardianto - Junior Web Developer Portfolio | Modern Web Solutions" />
     <meta
       name="description"
-      content="Portfolio resmi Ardianto, seorang junior web developer yang bersemangat di bidang frontend development. Temukan proyek-proyek dan keahlian saya dalam membangun website modern dan responsif." />
+      content="Official portfolio of Ardianto, a passionate junior web developer specializing in frontend development. Explore my projects and skills in building modern, responsive websites with clean code and user-friendly interfaces." />
     <meta
       name="keywords"
-      content="Ardianto, junior web developer, portfolio, frontend developer, web development, HTML, CSS, JavaScript, React, Vue, Node.js, developer Indonesia, programmer Indonesia, jasa pembuatan website" />
+      content="Ardianto, junior web developer, portfolio, frontend developer, web development, HTML, CSS, JavaScript, React, Vue, Node.js, website developer, web programmer, website creation service, responsive design, modern websites, web solutions" />
     <meta name="author" content="Ardianto" />
+    <meta name="robots" content="index, follow" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
 
     <!-- Canonical URL to prevent duplicate content issues -->
     <link rel="canonical" href="https://www.ardianto.my.id/" />
@@ -22,34 +25,35 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.ardianto.my.id/" />
-    <meta property="og:title" content="Ardianto - Junior Web Developer Portfolio | Frontend Developer Indonesia" />
+    <meta property="og:title" content="Ardianto - Junior Web Developer Portfolio | Frontend Developer | Modern Web Solutions" />
     <meta
       property="og:description"
-      content="Portfolio resmi Ardianto, seorang junior web developer yang bersemangat di bidang frontend development. Temukan proyek-proyek dan keahlian saya." />
+      content="Official portfolio of Ardianto, a passionate junior web developer specializing in frontend development. Explore my projects and skills in building modern, responsive websites." />
     <meta
       property="og:image"
       content="https://www.ardianto.my.id/assets/images/hero-banner.jpg" />
-    <meta property="og:image:alt" content="Foto profil Ardianto" />
-    <meta property="og:locale" content="id_ID" />
-
+    <meta property="og:image:alt" content="Ardianto's profile photo - Junior Web Developer" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Ardianto Portfolio" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://www.ardianto.my.id/" />
     <meta
       property="twitter:title"
-      content="Ardianto - Junior Web Developer Portfolio | Frontend Developer Indonesia" />
+      content="Ardianto - Junior Web Developer Portfolio | Frontend Developer | Modern Web Solutions" />
     <meta
       property="twitter:description"
-      content="Portfolio resmi Ardianto, seorang junior web developer yang bersemangat di bidang frontend development. Temukan proyek-proyek dan keahlian saya." />
+      content="Official portfolio of Ardianto, a passionate junior web developer specializing in frontend development. Explore my projects and skills in building modern, responsive websites." />
     <meta
       property="twitter:image"
       content="https://www.ardianto.my.id/assets/images/hero-banner.jpg" />
-    <meta property="twitter:image:alt" content="Foto profil Ardianto" />
-
+    <meta property="twitter:image:alt" content="Ardianto's profile photo - Junior Web Developer" />
+    <meta property="twitter:creator" content="@ardiajaa" />
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -85,8 +89,13 @@
         "https://www.youtube.com/@Arezaja"
       ],
       "jobTitle": "Junior Web Developer",
-      "description": "Portfolio resmi Ardianto, seorang junior web developer yang bersemangat di bidang frontend development.",
-      "image": "https://www.ardianto.my.id/assets/images/hero-banner.jpg"
+      "description": "Official portfolio of Ardianto, a passionate junior web developer specializing in frontend development. Expertise in building modern, responsive websites with clean code and user-friendly interfaces.",
+      "image": "https://www.ardianto.my.id/assets/images/hero-banner.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Indonesia"
+      },
+      "knowsAbout": ["Web Development", "Frontend Development", "Responsive Design", "JavaScript", "HTML5", "CSS3"]
     }
     </script>
 
@@ -385,10 +394,83 @@
             <div class="hero-content">
               <h1
                 class="h1 hero-title"
+                id="heroTitle"
                 data-reveal="top"
-                data-reveal-delay="0.5s">
-                I'm Junior Web Development.
+                data-reveal-delay="2s"
+                data-original-text="Achmad Rizky Putra Ardianto"
+                data-new-text="I'm Junior Web Development">
+                Achmad Rizky Putra Ardianto
               </h1>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                  const heroTitle = document.getElementById("heroTitle");
+                  let isAnimating = false; // Bendera untuk mencegah animasi tumpang tindih
+
+                  function animateTextChange(element, targetText) {
+                    // Jika sedang dalam animasi atau teks sudah sesuai target, keluar
+                    if (isAnimating || element.innerText === targetText) {
+                      return;
+                    }
+                    isAnimating = true; // Set bendera animasi aktif
+
+                    // Fase 1: Fade out dan geser ke atas
+                    element.style.transition =
+                      "opacity 0.2s ease-out, transform 0.2s ease-out";
+                    element.style.opacity = "0";
+                    element.style.transform = "translateY(-15px)"; // Geser sedikit ke atas
+
+                    // Tunggu transisi fade out selesai
+                    setTimeout(() => {
+                      // Fase 2: Ganti teks dan siapkan untuk fade in
+                      element.innerText = targetText;
+
+                      // Nonaktifkan transisi sementara untuk mengatur ulang posisi secara instan
+                      element.style.transition = "none";
+                      // Mulai dari sedikit di bawah (untuk efek slide-up)
+                      element.style.transform = "translateY(15px)";
+                      element.style.opacity = "0"; // Pastikan masih tidak terlihat
+
+                      // Paksa reflow browser untuk menerapkan perubahan instan sebelum transisi berikutnya
+                      void element.offsetWidth;
+
+                      // Fase 3: Fade in dan kembali ke posisi semula dengan transisi bouncy yang mulus
+                      element.style.transition =
+                        "opacity 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+                      element.style.opacity = "1";
+                      element.style.transform = "translateY(0)"; // Kembali ke posisi asli
+
+                      // Set bendera animasi tidak aktif setelah transisi fade-in selesai
+                      setTimeout(() => {
+                        isAnimating = false;
+                      }, 400); // Sesuaikan dengan durasi transisi fade-in
+                    }, 200); // Sesuaikan dengan durasi transisi fade-out
+                  }
+
+                  // Event listener untuk hover (mouse masuk)
+                  heroTitle.addEventListener("mouseover", function () {
+                    animateTextChange(this, this.dataset.newText);
+                  });
+
+                  // Event listener untuk mouse keluar
+                  heroTitle.addEventListener("mouseout", function () {
+                    animateTextChange(this, this.dataset.originalText);
+                  });
+
+                  // Event listener untuk klik (mengganti teks secara bergantian)
+                  heroTitle.addEventListener("click", function () {
+                    const currentText = this.innerText;
+                    const originalText = this.dataset.originalText;
+                    const newText = this.dataset.newText;
+
+                    if (currentText === originalText) {
+                      animateTextChange(this, newText);
+                    } else {
+                      animateTextChange(this, originalText);
+                    }
+                  });
+                });
+              </script>
 
               <p
                 class="section-text"
@@ -398,6 +480,7 @@
                 I’m passionate about coding, solving problems, and constantly
                 learning new technologies.
               </p>
+            </div>
 
               <div class="btn-wrapper" data-reveal="top" data-reveal-delay="1s">
                 <a href="/project/" class="btn btn-primary">See My Works</a>
