@@ -6,18 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary meta tags for SEO -->
-    <title>Ardianto - Junior Web Developer</title>
-    <meta name="title" content="Ardianto - Junior Web Developer Portfolio | Modern Web Solutions" />
+    <title>Achmad Rizky Putra Ardianto - Web Developer</title>
+    <meta name="title" content="Ardianto | Achmad Rizky Putra Ardianto - Web Developer Portfolio" />
     <meta
       name="description"
-      content="Official portfolio of Ardianto, a passionate junior web developer specializing in frontend development. Explore my projects and skills in building modern, responsive websites with clean code and user-friendly interfaces." />
+      content="Ardianto (Achmad Rizky Putra Ardianto) adalah seorang web developer profesional yang bersemangat dalam pengembangan frontend. Portfolio resmi yang menampilkan proyek dan keahlian dalam membangun website modern dan responsif dengan kode yang bersih dan antarmuka yang ramah pengguna." />
     <meta
       name="keywords"
-      content="Ardianto, junior web developer, portfolio, frontend developer, web development, HTML, CSS, JavaScript, React, Vue, Node.js, website developer, web programmer, website creation service, responsive design, modern websites, web solutions" />
-    <meta name="author" content="Ardianto" />
-    <meta name="robots" content="index, follow" />
-    <meta name="revisit-after" content="7 days" />
+      content="Ardianto, Achmad Rizky Putra Ardianto, web developer, portfolio, frontend developer, pengembangan web, HTML, CSS, JavaScript, React, Vue, Node.js, pembuat website, programmer web, layanan pembuatan website, desain responsif, website modern, solusi web" />
+    <meta name="author" content="Ardianto (Achmad Rizky Putra Ardianto)" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="revisit-after" content="1 days" />
     <meta name="rating" content="general" />
+    <meta name="language" content="id" />
+    <meta name="geo.region" content="ID" />
+    <meta name="geo.placename" content="Indonesia" />
 
     <!-- Canonical URL to prevent duplicate content issues -->
     <link rel="canonical" href="https://www.ardianto.my.id/" />
@@ -25,30 +28,30 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.ardianto.my.id/" />
-    <meta property="og:title" content="Ardianto - Junior Web Developer Portfolio | Frontend Developer | Modern Web Solutions" />
+    <meta property="og:title" content="Ardianto | Achmad Rizky Putra Ardianto - Web Developer Portfolio" />
     <meta
       property="og:description"
-      content="Official portfolio of Ardianto, a passionate junior web developer specializing in frontend development. Explore my projects and skills in building modern, responsive websites." />
+      content="Ardianto (Achmad Rizky Putra Ardianto) adalah seorang web developer profesional yang bersemangat dalam pengembangan frontend. Portfolio resmi yang menampilkan proyek dan keahlian dalam membangun website modern dan responsif." />
     <meta
       property="og:image"
       content="https://www.ardianto.my.id/assets/images/hero-banner.jpg" />
-    <meta property="og:image:alt" content="Ardianto's profile photo - Junior Web Developer" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Ardianto Portfolio" />
+    <meta property="og:image:alt" content="Foto profil Ardianto (Achmad Rizky Putra Ardianto) - Web Developer" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="Portfolio Ardianto | Achmad Rizky Putra Ardianto" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://www.ardianto.my.id/" />
     <meta
       property="twitter:title"
-      content="Ardianto - Junior Web Developer Portfolio | Frontend Developer | Modern Web Solutions" />
+      content="Ardianto | Achmad Rizky Putra Ardianto - Web Developer Portfolio" />
     <meta
       property="twitter:description"
-      content="Official portfolio of Ardianto, a passionate junior web developer specializing in frontend development. Explore my projects and skills in building modern, responsive websites." />
+      content="Ardianto (Achmad Rizky Putra Ardianto) adalah seorang web developer profesional yang bersemangat dalam pengembangan frontend. Portfolio resmi yang menampilkan proyek dan keahlian dalam membangun website modern dan responsif." />
     <meta
       property="twitter:image"
       content="https://www.ardianto.my.id/assets/images/hero-banner.jpg" />
-    <meta property="twitter:image:alt" content="Ardianto's profile photo - Junior Web Developer" />
+    <meta property="twitter:image:alt" content="Foto profil Ardianto (Achmad Rizky Putra Ardianto) - Web Developer" />
     <meta property="twitter:creator" content="@ardiajaa" />
 
     <!-- Favicon -->
@@ -121,6 +124,22 @@
         font-size: 1rem;
         min-width: 250px;
         border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Button Wrapper Styles */
+      .btn-wrapper {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        max-width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        .btn-wrapper {
+          justify-content: center !important;
+        }
       }
 
       .music-player:hover {
@@ -476,16 +495,31 @@
                 class="section-text"
                 data-reveal="top"
                 data-reveal-delay="0.75s">
-                Hi! I’m Ardi, a junior web developer eager to grow and create.
-                I’m passionate about coding, solving problems, and constantly
+                Hi! I'm Ardi, a junior web developer eager to grow and create.
+                I'm passionate about coding, solving problems, and constantly
                 learning new technologies.
               </p>
-            </div>
 
               <div class="btn-wrapper" data-reveal="top" data-reveal-delay="1s">
-                <a href="/project/" class="btn btn-primary">See My Works</a>
+                <a href="/project/" class="btn btn-primary" style="
+                  min-width: 160px;
+                  text-align: center;
+                  padding: 1rem 2rem;
+                  border-radius: 8px;
+                  font-weight: 600;
+                  transition: all 0.3s ease;
+                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                ">See My Works</a>
 
-                <a href="/contact/" class="btn btn-secondary">Contact Me</a>
+                <a href="/contact/" class="btn btn-secondary" style="
+                  min-width: 160px;
+                  text-align: center;
+                  padding: 1rem 2rem;
+                  border-radius: 8px;
+                  font-weight: 600;
+                  transition: all 0.3s ease;
+                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                ">Contact Me</a>
               </div>
             </div>
           </div>
