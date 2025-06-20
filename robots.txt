@@ -1,0 +1,32 @@
+# robots.txt untuk https://www.ardianto.my.id/
+# Optimasi SEO & keamanan
+
+User-agent: *
+Allow: /
+
+# Sitemap utama
+Sitemap: https://www.ardianto.my.id/sitemap.xml
+
+# Blokir folder/file sensitif (edit sesuai kebutuhan)
+Disallow: /admin/
+Disallow: /login/
+Disallow: /wp-admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Blokir file konfigurasi dan script sensitif
+Disallow: /*.php$
+Disallow: /*.cgi$
+Disallow: /*.pl$
+Disallow: /*.env$
+Disallow: /*.git$
+Disallow: /*.htaccess$
+
+# Blokir parameter pencarian (jika ada)
+Disallow: /*?s=
+Disallow: /*?search=
+
+# Catatan:
+# - Edit Disallow sesuai struktur folder/file sensitif di website Anda
+# - Pastikan halaman penting tetap Allow 
