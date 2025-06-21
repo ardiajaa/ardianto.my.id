@@ -108,6 +108,17 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <!-- Language Loading Overlay -->
+    <div class="language-loading" id="languageLoading">
+      <div class="loading-content">
+        <div class="spinner"></div>
+        <div class="loading-text" id="loadingText">Memuat dalam bahasa Indonesia...</div>
+        <div class="loading-progress">
+          <div class="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+
     <!-- 
     - #HEADER
   -->
@@ -836,7 +847,8 @@
           'project-5-description': 'Generator QR Code modern dan responsif dengan kemampuan pemindaian. Buat QR code yang dapat disesuaikan secara instan dengan opsi ukuran, warna, dan logo, dan pindai QR code menggunakan kamera perangkat Anda.',
           'project-6-title': 'Proyek 6: Ucapan Ulang Tahun Digital',
           'project-6-description': 'Website sederhana namun elegan untuk mengirim ucapan ulang tahun digital yang dipersonalisasi, menampilkan musik latar dan desain yang menarik secara visual.',
-          'copyright': '© 2025 Ardianto. Semua hak dilindungi.'
+          'copyright': '© 2025 Ardianto. Semua hak dilindungi.',
+          'loading-text': 'Memuat dalam bahasa Indonesia...'
         },
         en: {
           'home': 'Home',
@@ -859,14 +871,58 @@
           'project-5-description': 'A modern and responsive QR Code Generator with scanning capabilities. Instantly create customizable QR codes with size, color, and logo options, and scan QR codes using your device\'s camera.',
           'project-6-title': 'Project 6: Digital Birthday Greeting',
           'project-6-description': 'A simple yet elegant website for sending personalized digital birthday greetings, featuring background music and visually appealing design.',
-          'copyright': '© 2025 Ardianto. All rights reserved.'
+          'copyright': '© 2025 Ardianto. All rights reserved.',
+          'loading-text': 'Loading in English...'
         }
       };
 
-      // Function to change language
-      function changeLanguage(lang) {
+      // Enhanced function to change language with smooth transitions
+      async function changeLanguage(lang) {
+        const loadingOverlay = document.getElementById('languageLoading');
+        const loadingText = document.getElementById('loadingText');
         const elements = document.querySelectorAll('[data-lang]');
-        elements.forEach(element => {
+        
+        // Check if language is actually changing
+        const currentLang = document.documentElement.lang || 'id';
+        const isLanguageChanging = currentLang !== lang;
+        
+        // Only show loading if language is actually changing
+        if (isLanguageChanging) {
+          // Update loading text first
+          if (loadingText && translations[lang] && translations[lang]['loading-text']) {
+            loadingText.textContent = translations[lang]['loading-text'];
+          }
+          
+          // Show loading overlay
+          loadingOverlay.classList.add('show');
+          
+          // Wait a bit for loading effect
+          await new Promise(resolve => setTimeout(resolve, 200));
+        }
+        
+        // Group elements by type for staggered animation
+        const sectionTitles = document.querySelectorAll('.section-title[data-lang]');
+        const sectionTexts = document.querySelectorAll('.section-text[data-lang]');
+        const buttons = document.querySelectorAll('.btn[data-lang]');
+        const navLinks = document.querySelectorAll('.navbar-link[data-lang]');
+        const copyright = document.querySelector('.copyright[data-lang]');
+        const otherElements = document.querySelectorAll('[data-lang]:not(.section-title):not(.section-text):not(.btn):not(.navbar-link):not(.copyright)');
+        
+        // Phase 1: Start transitions out (only if language is changing)
+        const allElements = [...elements];
+        
+        if (isLanguageChanging) {
+          // Add transitioning class to all elements
+          allElements.forEach(element => {
+            element.classList.add('transitioning');
+          });
+          
+          // Wait for fade out
+          await new Promise(resolve => setTimeout(resolve, 300));
+        }
+        
+        // Phase 2: Update content
+        allElements.forEach(element => {
           const key = element.getAttribute('data-lang');
           if (translations[lang] && translations[lang][key]) {
             element.textContent = translations[lang][key];
@@ -876,48 +932,192 @@
         // Update HTML lang attribute
         document.documentElement.lang = lang;
         
-        // Update language button
+        // Update language button with smooth transition
         const currentFlag = document.getElementById('currentFlag');
-        const currentLang = document.getElementById('currentLang');
+        const currentLangElement = document.getElementById('currentLang');
         
-        if (lang === 'id') {
-          currentFlag.src = "https://static.vecteezy.com/system/resources/previews/015/272/227/non_2x/indonesia-3d-rounded-flag-with-transparent-background-free-png.png";
-          currentLang.textContent = 'ID';
+        if (currentFlag && currentLangElement) {
+          // Add transition effect to flag and text
+          currentFlag.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+          currentLangElement.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+          
+          if (lang === 'id') {
+            currentFlag.src = "https://static.vecteezy.com/system/resources/previews/015/272/227/non_2x/indonesia-3d-rounded-flag-with-transparent-background-free-png.png";
+            currentLangElement.textContent = 'ID';
+          } else {
+            currentFlag.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/United-kingdom_flag_icon_round.svg/1200px-United-kingdom_flag_icon_round.svg.png";
+            currentLangElement.textContent = 'EN';
+          }
+        }
+        
+        // Phase 3: Staggered animation back in (only if language is changing)
+        if (isLanguageChanging) {
+          // Remove transitioning class and add transitioning-in
+          allElements.forEach(element => {
+            element.classList.remove('transitioning');
+            element.classList.add('transitioning-in');
+          });
+          
+          // Stagger animation for different element types
+          sectionTitles.forEach((element, index) => {
+            setTimeout(() => {
+              element.classList.remove('transitioning-in');
+            }, 100 + (index * 50));
+          });
+          
+          sectionTexts.forEach((element, index) => {
+            setTimeout(() => {
+              element.classList.remove('transitioning-in');
+            }, 200 + (index * 50));
+          });
+          
+          buttons.forEach((element, index) => {
+            setTimeout(() => {
+              element.classList.remove('transitioning-in');
+            }, 400 + (index * 100));
+          });
+          
+          navLinks.forEach((element, index) => {
+            setTimeout(() => {
+              element.classList.remove('transitioning-in');
+            }, 500 + (index * 50));
+          });
+          
+          if (copyright) {
+            setTimeout(() => {
+              copyright.classList.remove('transitioning-in');
+            }, 600);
+          }
+          
+          otherElements.forEach((element, index) => {
+            setTimeout(() => {
+              element.classList.remove('transitioning-in');
+            }, 700 + (index * 30));
+          });
+          
+          // Wait for all animations to complete
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          
+          // Hide loading overlay
+          loadingOverlay.classList.remove('show');
+          
+          // Add stagger animation class for final polish
+          allElements.forEach((element, index) => {
+            setTimeout(() => {
+              element.classList.add('stagger-animation');
+              setTimeout(() => {
+                element.classList.remove('stagger-animation');
+              }, 600);
+            }, index * 50);
+          });
         } else {
-          currentFlag.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/United-kingdom_flag_icon_round.svg/1200px-United-kingdom_flag_icon_round.svg.png";
-          currentLang.textContent = 'EN';
+          // If no language change, just close dropdown immediately
+          const languageDropdown = document.getElementById('languageDropdown');
+          if (languageDropdown) {
+            languageDropdown.classList.remove('showing');
+            setTimeout(() => {
+              languageDropdown.style.display = 'none';
+            }, 300);
+          }
         }
         
         // Save language preference
         localStorage.setItem('preferred-language', lang);
       }
 
-      // Initialize language
+      // Initialize language with enhanced setup
       document.addEventListener('DOMContentLoaded', function() {
         const savedLang = localStorage.getItem('preferred-language') || 'id';
         const languageBtn = document.getElementById('languageBtn');
         const languageDropdown = document.getElementById('languageDropdown');
+        const loadingText = document.getElementById('loadingText');
         
-        // Set initial language
-        changeLanguage(savedLang);
+        // Set initial loading text
+        if (loadingText && translations[savedLang] && translations[savedLang]['loading-text']) {
+          loadingText.textContent = translations[savedLang]['loading-text'];
+        }
+        
+        // Set initial language without animation
+        const elements = document.querySelectorAll('[data-lang]');
+        elements.forEach(element => {
+          const key = element.getAttribute('data-lang');
+          if (translations[savedLang] && translations[savedLang][key]) {
+            element.textContent = translations[savedLang][key];
+          }
+        });
+        
+        document.documentElement.lang = savedLang;
+        
+        // Update language button
+        const currentFlag = document.getElementById('currentFlag');
+        const currentLangElement = document.getElementById('currentLang');
+        
+        if (currentFlag && currentLangElement) {
+          if (savedLang === 'id') {
+            currentFlag.src = "https://static.vecteezy.com/system/resources/previews/015/272/227/non_2x/indonesia-3d-rounded-flag-with-transparent-background-free-png.png";
+            currentLangElement.textContent = 'ID';
+          } else {
+            currentFlag.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/United-kingdom_flag_icon_round.svg/1200px-United-kingdom_flag_icon_round.svg.png";
+            currentLangElement.textContent = 'EN';
+          }
+        }
         
         if (languageBtn) {
-          // Toggle dropdown on button click
+          // Enhanced dropdown toggle with animation
           languageBtn.addEventListener('click', function(e) {
             e.stopPropagation();
             const isVisible = languageDropdown.style.display === 'block';
-            languageDropdown.style.display = isVisible ? 'none' : 'block';
+            
+            if (isVisible) {
+              languageDropdown.style.display = 'none';
+              languageDropdown.classList.remove('showing');
+            } else {
+              languageDropdown.style.display = 'block';
+              // Trigger animation on next frame
+              requestAnimationFrame(() => {
+                languageDropdown.classList.add('showing');
+              });
+            }
           });
           
-          // Handle language option clicks
+          // Enhanced language option clicks
           document.querySelectorAll('.lang-option').forEach(option => {
-            option.addEventListener('click', function() {
+            option.addEventListener('click', async function() {
               const lang = this.getAttribute('data-lang');
-              changeLanguage(lang);
-              languageDropdown.style.display = 'none';
+              const currentLang = document.documentElement.lang || 'id';
+              
+              // Add visual feedback for the clicked option
+              this.style.backgroundColor = '#e5e7eb';
+              this.style.transform = 'scale(0.95)';
+              
+              setTimeout(() => {
+                this.style.backgroundColor = 'transparent';
+                this.style.transform = 'scale(1)';
+              }, 150);
+              
+              // Close dropdown with animation
+              languageDropdown.classList.remove('showing');
+              setTimeout(() => {
+                languageDropdown.style.display = 'none';
+              }, 300);
+              
+              // Only change language if it's actually different
+              if (currentLang !== lang) {
+                // Change language with smooth transition
+                await changeLanguage(lang);
+              } else {
+                // If same language, just show a subtle feedback
+                const currentFlag = document.getElementById('currentFlag');
+                if (currentFlag) {
+                  currentFlag.style.transform = 'scale(1.1) rotate(5deg)';
+                  setTimeout(() => {
+                    currentFlag.style.transform = 'scale(1) rotate(0deg)';
+                  }, 200);
+                }
+              }
             });
             
-            // Add hover effect
+            // Enhanced hover effects
             option.addEventListener('mouseenter', function() {
               this.style.backgroundColor = '#f5f5f5';
             });
@@ -929,7 +1129,12 @@
           
           // Close dropdown when clicking outside
           document.addEventListener('click', function() {
-            languageDropdown.style.display = 'none';
+            if (languageDropdown.style.display === 'block') {
+              languageDropdown.classList.remove('showing');
+              setTimeout(() => {
+                languageDropdown.style.display = 'none';
+              }, 300);
+            }
           });
         }
       });
@@ -1157,6 +1362,393 @@
         object-fit: cover;
         border-radius: 50%;
         border: 1px solid #eee;
+      }
+
+      /* Language Transition Styles */
+      [data-lang] {
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform-origin: center;
+        will-change: transform, opacity;
+      }
+
+      [data-lang].transitioning {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+      }
+
+      [data-lang].transitioning-in {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      /* Special transitions for different elements */
+      .section-title[data-lang] {
+        transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .section-title[data-lang].transitioning {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.9) rotateX(-10deg);
+      }
+
+      .section-title[data-lang].transitioning-in {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotateX(0deg);
+      }
+
+      .section-text[data-lang] {
+        transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .section-text[data-lang].transitioning {
+        opacity: 0;
+        transform: translateX(-15px) scale(0.98);
+      }
+
+      .section-text[data-lang].transitioning-in {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+
+      .btn[data-lang] {
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform-origin: center;
+      }
+
+      .btn[data-lang].transitioning {
+        opacity: 0;
+        transform: translateY(10px) scale(0.9);
+      }
+
+      .btn[data-lang].transitioning-in {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .navbar-link[data-lang] {
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        position: relative;
+      }
+
+      .navbar-link[data-lang].transitioning {
+        opacity: 0;
+        transform: translateY(-5px);
+      }
+
+      .navbar-link[data-lang].transitioning-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .copyright[data-lang] {
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .copyright[data-lang].transitioning {
+        opacity: 0;
+        transform: translateY(5px) scale(0.95);
+      }
+
+      .copyright[data-lang].transitioning-in {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      /* Loading animation for language change */
+      .language-loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.95));
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .language-loading.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .loading-content {
+        text-align: center;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        animation: loadingPulse 2s ease-in-out infinite;
+        max-width: 300px;
+        width: 100%;
+      }
+
+      @keyframes loadingPulse {
+        0%, 100% {
+          transform: scale(1);
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+        50% {
+          transform: scale(1.02);
+          box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+        }
+      }
+
+      .language-loading .spinner {
+        width: 50px;
+        height: 50px;
+        border: 3px solid #f3f4f6;
+        border-top: 3px solid #3f78e0;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 20px;
+        position: relative;
+      }
+
+      .language-loading .spinner::after {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+        border: 3px solid transparent;
+        border-top: 3px solid rgba(63, 120, 224, 0.3);
+        border-radius: 50%;
+        animation: spin 1.5s linear infinite reverse;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .loading-text {
+        font-family: 'Manrope', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: textFadeIn 0.5s ease-out 0.3s forwards;
+        line-height: 1.5;
+      }
+
+      @keyframes textFadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .loading-progress {
+        width: 100%;
+        height: 4px;
+        background: #f3f4f6;
+        border-radius: 2px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #3f78e0, #60a5fa, #3f78e0);
+        border-radius: 2px;
+        width: 0%;
+        animation: progressFill 2s ease-in-out infinite;
+        position: relative;
+      }
+
+      .progress-bar::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        animation: progressShine 2s ease-in-out infinite;
+      }
+
+      @keyframes progressFill {
+        0% { width: 0%; }
+        50% { width: 70%; }
+        100% { width: 100%; }
+      }
+
+      @keyframes progressShine {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+
+      /* Stagger animation for multiple elements */
+      .stagger-animation {
+        animation: staggerFadeIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      }
+
+      @keyframes staggerFadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px) scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      /* Enhanced Language Selector Styles */
+      #languageBtn {
+        font-family: inherit;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        position: relative;
+        overflow: hidden;
+      }
+
+      #languageBtn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+      }
+
+      #languageBtn:hover::before {
+        left: 100%;
+      }
+
+      #languageBtn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      #languageBtn:active {
+        transform: translateY(0);
+      }
+
+      #currentFlag {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid #eee;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      #languageBtn:hover #currentFlag {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      #currentLang {
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      #languageDropdown {
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform-origin: top right;
+      }
+
+      #languageDropdown.showing {
+        animation: dropdownSlide 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      @keyframes dropdownSlide {
+        0% {
+          opacity: 0;
+          transform: translateY(-10px) scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .lang-option {
+        font-family: inherit;
+        transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .lang-option::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+        transition: left 0.3s;
+      }
+
+      .lang-option:hover::before {
+        left: 100%;
+      }
+
+      .lang-option:hover {
+        background-color: #f8fafc !important;
+        transform: translateX(3px);
+      }
+
+      .lang-option img {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid #eee;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .lang-option:hover img {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      /* Mobile responsive for loading */
+      @media (max-width: 768px) {
+        .loading-content {
+          padding: 30px 20px;
+          max-width: 280px;
+          margin: 0 20px;
+        }
+
+        .loading-text {
+          font-size: 14px;
+        }
+
+        .language-loading .spinner {
+          width: 40px;
+          height: 40px;
+          margin-bottom: 15px;
+        }
+
+        /* Mobile transition adjustments */
+        [data-lang].transitioning {
+          transform: translateY(-5px) scale(0.98);
+        }
+
+        .section-title[data-lang].transitioning {
+          transform: translateY(-10px) scale(0.95);
+        }
+
+        .section-text[data-lang].transitioning {
+          transform: translateX(-8px) scale(0.99);
+        }
       }
     </style>
   </body>
