@@ -163,6 +163,66 @@
         .btn-wrapper {
           justify-content: center !important;
         }
+
+        .music-player {
+          bottom: 20px;
+          right: 20px;
+          font-size: 0.9rem;
+          padding: 12px 20px;
+          gap: 12px;
+          min-width: 220px;
+        }
+
+        .music-player button {
+          font-size: 1rem;
+          width: 32px;
+          height: 32px;
+          padding: 6px;
+        }
+
+        /* Mobile Header Controls */
+        .header-controls {
+          gap: 10px !important;
+        }
+
+        /* Mobile Language Selector */
+        .language-selector {
+          margin: 0 !important;
+        }
+
+        #languageBtn {
+          padding: 6px 8px !important;
+          font-size: 12px !important;
+          min-width: 60px;
+        }
+
+        #languageBtn span {
+          font-size: 12px !important;
+        }
+
+        #currentLang {
+          display: none !important;
+        }
+
+        #currentFlag {
+          width: 18px !important;
+          height: 18px !important;
+        }
+
+        #languageDropdown {
+          right: 0 !important;
+          min-width: 100px !important;
+        }
+
+        .lang-option {
+          padding: 8px 10px !important;
+          font-size: 12px !important;
+        }
+
+        .lang-option img {
+          width: 18px !important;
+          height: 18px !important;
+        }
       }
 
       .music-player:hover {
@@ -216,22 +276,33 @@
         box-shadow: 0 0 10px rgba(255, 69, 58, 0.5);
       }
 
-      @media (max-width: 768px) {
-        .music-player {
-          bottom: 20px;
-          right: 20px;
-          font-size: 0.9rem;
-          padding: 12px 20px;
-          gap: 12px;
-          min-width: 220px;
-        }
+      /* Language Selector Styles */
+      .language-selector {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
 
-        .music-player button {
-          font-size: 1rem;
-          width: 32px;
-          height: 32px;
-          padding: 6px;
-        }
+      #languageBtn {
+        font-family: inherit;
+      }
+
+      #currentFlag {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid #eee;
+      }
+
+      .lang-option {
+        font-family: inherit;
+      }
+
+      .lang-option img {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid #eee;
       }
     </style>
   </head>
@@ -291,19 +362,19 @@
 
           <ul class="navbar-list">
             <li>
-              <a href="/" class="navbar-link">Home</a>
+              <a href="/" class="navbar-link" data-lang="home">Home</a>
             </li>
 
             <li>
-              <a href="/about/" class="navbar-link">About</a>
+              <a href="/about/" class="navbar-link" data-lang="about">About</a>
             </li>
 
             <li>
-              <a href="/project/" class="navbar-link">Projects</a>
+              <a href="/project/" class="navbar-link" data-lang="projects">Projects</a>
             </li>
 
             <li>
-              <a href="/contact/" class="navbar-link">Contact</a>
+              <a href="/contact/" class="navbar-link" data-lang="contact">Contact</a>
             </li>
           </ul>
 
@@ -348,9 +419,97 @@
           </ul>
         </nav>
 
-        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-        </button>
+        <div class="header-controls" style="
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        ">
+          <!-- Language Selector -->
+          <div class="language-selector" style="
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+          ">
+            <button 
+              id="languageBtn" 
+              aria-label="Pilih bahasa" 
+              style="
+                background: none;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                padding: 8px 12px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 14px;
+                transition: all 0.3s ease;
+              "
+            >
+              <img id="currentFlag" src="https://static.vecteezy.com/system/resources/previews/015/272/227/non_2x/indonesia-3d-rounded-flag-with-transparent-background-free-png.png" alt="Flag" style="width: 20px; height: 20px; object-fit: cover; border-radius: 50%;">
+              <span id="currentLang">ID</span>
+              <ion-icon name="chevron-down-outline" style="font-size: 12px;"></ion-icon>
+            </button>
+            
+            <div id="languageDropdown" style="
+              position: absolute;
+              top: 100%;
+              right: 0;
+              background: white;
+              border: 1px solid #ddd;
+              border-radius: 6px;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+              display: none;
+              z-index: 1000;
+              min-width: 120px;
+              margin-top: 4px;
+            ">
+              <button 
+                class="lang-option" 
+                data-lang="id" 
+                style="
+                  width: 100%;
+                  padding: 10px 12px;
+                  border: none;
+                  background: none;
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  font-size: 14px;
+                  transition: background-color 0.2s ease;
+                "
+              >
+                <img src="https://static.vecteezy.com/system/resources/previews/015/272/227/non_2x/indonesia-3d-rounded-flag-with-transparent-background-free-png.png" alt="Indonesia Flag" style="width: 20px; height: 20px; object-fit: cover; border-radius: 50%;">
+                <span>Indonesia</span>
+              </button>
+              <button 
+                class="lang-option" 
+                data-lang="en" 
+                style="
+                  width: 100%;
+                  padding: 10px 12px;
+                  border: none;
+                  background: none;
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  font-size: 14px;
+                  transition: background-color 0.2s ease;
+                "
+              >
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/United-kingdom_flag_icon_round.svg/1200px-United-kingdom_flag_icon_round.svg.png" alt="UK Flag" style="width: 20px; height: 20px; object-fit: cover; border-radius: 50%;">
+                <span>English</span>
+              </button>
+            </div>
+          </div>
+
+          <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
 
         <div class="overlay" data-nav-toggler data-overlay></div>
       </div>
@@ -445,7 +604,9 @@
                 data-reveal="top"
                 data-reveal-delay="2s"
                 data-original-text="Achmad Rizky Putra Ardianto"
-                data-new-text="I'm Junior Web Development">
+                data-new-text="I'm Junior Web Development"
+                data-lang="hero-title"
+                data-lang-alt="hero-title-alt">
                 Achmad Rizky Putra Ardianto
               </h1>
 
@@ -522,7 +683,8 @@
               <p
                 class="section-text"
                 data-reveal="top"
-                data-reveal-delay="0.75s">
+                data-reveal-delay="0.75s"
+                data-lang="description">
                 Hi! I'm Ardi, a junior web developer eager to grow and create.
                 I'm passionate about coding, solving problems, and constantly
                 learning new technologies.
@@ -537,7 +699,7 @@
                   font-weight: 600;
                   transition: all 0.3s ease;
                   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                ">See My Works</a>
+                " data-lang="see-works">See My Works</a>
 
                 <a href="/contact/" class="btn btn-secondary" style="
                   min-width: 160px;
@@ -547,7 +709,7 @@
                   font-weight: 600;
                   transition: all 0.3s ease;
                   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                ">Contact Me</a>
+                " data-lang="contact-me">Contact Me</a>
               </div>
             </div>
           </div>
@@ -887,7 +1049,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p class="copyright">© 2025 Ardianto. All rights reserved.</p>
+        <p class="copyright" data-lang="copyright">© 2025 Ardianto. All rights reserved.</p>
 
         <ul class="social-list">
           <li>
@@ -1140,6 +1302,115 @@
          }, 0); // Use a small timeout to ensure layout is complete
 
 
+      });
+    </script>
+    <script>
+      // Language translations
+      const translations = {
+        id: {
+          'home': 'Beranda',
+          'about': 'Tentang',
+          'projects': 'Proyek',
+          'contact': 'Kontak',
+          'hero-title': 'Achmad Rizky Putra Ardianto',
+          'hero-title-alt': 'Saya Junior Web Developer',
+          'description': 'Hai! Saya Ardi, seorang junior web developer yang bersemangat untuk tumbuh dan berkarya. Saya memiliki passion dalam coding, memecahkan masalah, dan terus belajar teknologi baru.',
+          'see-works': 'Lihat Karya Saya',
+          'contact-me': 'Hubungi Saya',
+          'copyright': '© 2025 Ardianto. Semua hak dilindungi.'
+        },
+        en: {
+          'home': 'Home',
+          'about': 'About',
+          'projects': 'Projects',
+          'contact': 'Contact',
+          'hero-title': 'Achmad Rizky Putra Ardianto',
+          'hero-title-alt': 'I\'m Junior Web Developer',
+          'description': 'Hi! I\'m Ardi, a junior web developer eager to grow and create. I\'m passionate about coding, solving problems, and constantly learning new technologies.',
+          'see-works': 'See My Works',
+          'contact-me': 'Contact Me',
+          'copyright': '© 2025 Ardianto. All rights reserved.'
+        }
+      };
+
+      // Function to change language
+      function changeLanguage(lang) {
+        const elements = document.querySelectorAll('[data-lang]');
+        elements.forEach(element => {
+          const key = element.getAttribute('data-lang');
+          if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+            
+            // Special handling for hero title with alternative text
+            if (key === 'hero-title') {
+              const altKey = element.getAttribute('data-lang-alt');
+              if (altKey && translations[lang][altKey]) {
+                element.setAttribute('data-original-text', translations[lang][key]);
+                element.setAttribute('data-new-text', translations[lang][altKey]);
+              }
+            }
+          }
+        });
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = lang;
+        
+        // Update language button
+        const currentFlag = document.getElementById('currentFlag');
+        const currentLang = document.getElementById('currentLang');
+        
+        if (lang === 'id') {
+          currentFlag.src = "https://static.vecteezy.com/system/resources/previews/015/272/227/non_2x/indonesia-3d-rounded-flag-with-transparent-background-free-png.png";
+          currentLang.textContent = 'ID';
+        } else {
+          currentFlag.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/United-kingdom_flag_icon_round.svg/1200px-United-kingdom_flag_icon_round.svg.png";
+          currentLang.textContent = 'EN';
+        }
+        
+        // Save language preference
+        localStorage.setItem('preferred-language', lang);
+      }
+
+      // Initialize language
+      document.addEventListener('DOMContentLoaded', function() {
+        const savedLang = localStorage.getItem('preferred-language') || 'id';
+        const languageBtn = document.getElementById('languageBtn');
+        const languageDropdown = document.getElementById('languageDropdown');
+        
+        // Set initial language
+        changeLanguage(savedLang);
+        
+        if (languageBtn) {
+          // Toggle dropdown on button click
+          languageBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isVisible = languageDropdown.style.display === 'block';
+            languageDropdown.style.display = isVisible ? 'none' : 'block';
+          });
+          
+          // Handle language option clicks
+          document.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', function() {
+              const lang = this.getAttribute('data-lang');
+              changeLanguage(lang);
+              languageDropdown.style.display = 'none';
+            });
+            
+            // Add hover effect
+            option.addEventListener('mouseenter', function() {
+              this.style.backgroundColor = '#f5f5f5';
+            });
+            
+            option.addEventListener('mouseleave', function() {
+              this.style.backgroundColor = 'transparent';
+            });
+          });
+          
+          // Close dropdown when clicking outside
+          document.addEventListener('click', function() {
+            languageDropdown.style.display = 'none';
+          });
+        }
       });
     </script>
   </body>

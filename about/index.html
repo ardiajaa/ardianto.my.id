@@ -120,19 +120,19 @@
 
           <ul class="navbar-list">
             <li>
-              <a href="../" class="navbar-link">Home</a>
+              <a href="../" class="navbar-link" data-lang="home">Home</a>
             </li>
 
             <li>
-              <a href="./" class="navbar-link active">About</a>
+              <a href="./" class="navbar-link active" data-lang="about">About</a>
             </li>
 
             <li>
-              <a href="../project/" class="navbar-link">Projects</a>
+              <a href="../project/" class="navbar-link" data-lang="projects">Projects</a>
             </li>
 
             <li>
-              <a href="../contact/" class="navbar-link">Contact</a>
+              <a href="../contact/" class="navbar-link" data-lang="contact">Contact</a>
             </li>
           </ul>
 
@@ -188,9 +188,97 @@
           </ul>
         </nav>
 
-        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-        </button>
+        <div class="header-controls" style="
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        ">
+          <!-- Language Selector -->
+          <div class="language-selector" style="
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+          ">
+            <button 
+              id="languageBtn" 
+              aria-label="Pilih bahasa" 
+              style="
+                background: none;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                padding: 8px 12px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 14px;
+                transition: all 0.3s ease;
+              "
+            >
+              <img id="currentFlag" src="https://static.vecteezy.com/system/resources/previews/015/272/227/non_2x/indonesia-3d-rounded-flag-with-transparent-background-free-png.png" alt="Flag" style="width: 20px; height: 20px; object-fit: cover; border-radius: 50%;">
+              <span id="currentLang">ID</span>
+              <ion-icon name="chevron-down-outline" style="font-size: 12px;"></ion-icon>
+            </button>
+            
+            <div id="languageDropdown" style="
+              position: absolute;
+              top: 100%;
+              right: 0;
+              background: white;
+              border: 1px solid #ddd;
+              border-radius: 6px;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+              display: none;
+              z-index: 1000;
+              min-width: 120px;
+              margin-top: 4px;
+            ">
+              <button 
+                class="lang-option" 
+                data-lang="id" 
+                style="
+                  width: 100%;
+                  padding: 10px 12px;
+                  border: none;
+                  background: none;
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  font-size: 14px;
+                  transition: background-color 0.2s ease;
+                "
+              >
+                <img src="https://static.vecteezy.com/system/resources/previews/015/272/227/non_2x/indonesia-3d-rounded-flag-with-transparent-background-free-png.png" alt="Indonesia Flag" style="width: 20px; height: 20px; object-fit: cover; border-radius: 50%;">
+                <span>Indonesia</span>
+              </button>
+              <button 
+                class="lang-option" 
+                data-lang="en" 
+                style="
+                  width: 100%;
+                  padding: 10px 12px;
+                  border: none;
+                  background: none;
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  font-size: 14px;
+                  transition: background-color 0.2s ease;
+                "
+              >
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/United-kingdom_flag_icon_round.svg/1200px-United-kingdom_flag_icon_round.svg.png" alt="UK Flag" style="width: 20px; height: 20px; object-fit: cover; border-radius: 50%;">
+                <span>English</span>
+              </button>
+            </div>
+          </div>
+
+          <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
 
         <div class="overlay" data-nav-toggler data-overlay></div>
       </div>
@@ -252,9 +340,9 @@
                 class="hero-content"
                 data-reveal="right"
                 style="text-align: left">
-                <h1 class="h1 hero-title" id="about-me-title">About Me</h1>
+                <h1 class="h1 hero-title" id="about-me-title" data-lang="about-me">About Me</h1>
 
-                <p class="section-text" style="margin-block: 24px 36px">
+                <p class="section-text" style="margin-block: 24px 36px" data-lang="about-description">
                   Hi! I'm Ardi, a junior web developer who is passionate about
                   continuing to learn and grow in the world of technology. I
                   have a great interest in solving problems through code and
@@ -268,16 +356,16 @@
                     href="../assets/pdf/cv.pdf"
                     download="Ardi_CV.pdf"
                     class="btn btn-primary"
-                    >Download CV</a
+                    data-lang="download-cv">Download CV</a
                   >
-                  <a href="../contact/" class="btn btn-secondary">Contact Me</a>
+                  <a href="../contact/" class="btn btn-secondary" data-lang="contact-me">Contact Me</a>
                 </div>
               </div>
             </div>
 
             <!-- Education -->
             <div data-reveal="bottom" style="margin-top: 70px">
-              <h2 class="h2 section-title">Education</h2>
+              <h2 class="h2 section-title" data-lang="education">Education</h2>
               <ul
                 class="grid-list"
                 style="
@@ -302,18 +390,18 @@
                         width="40"
                         height="40"
                         loading="lazy"
-                        alt="education icon" />
+                        alt="education icon"
+                        data-lang-alt="education-icon-alt" />
                       <!-- Placeholder icon -->
                     </div>
-                    <h3 class="h4 card-title" style="margin-block: 0 10px">
+                    <h3 class="h4 card-title" style="margin-block: 0 10px" data-lang="smk-title">
                       SMKN 1 Cerme Gresik
                     </h3>
                     <p class="card-text" style="margin-bottom: 5px">
-                      <strong>Department:</strong> Computer & Network
-                      Engineering
+                      <strong data-lang="department">Department:</strong> <span data-lang="smk-department">Computer & Network Engineering</span>
                     </p>
-                    <p class="card-text"><strong>Year:</strong> 2023 - 2026</p>
-                    <p class="card-text">
+                    <p class="card-text"><strong data-lang="year">Year:</strong> 2023 - 2026</p>
+                    <p class="card-text" data-lang="smk-description">
                       SMK Negeri 1 Cerme is also the Academy Training Partner
                       for MikroTik appointed to implement the MikroTik Academy
                       class program for students, which is integrated into the
@@ -340,14 +428,15 @@
                         width="40"
                         height="40"
                         loading="lazy"
-                        alt="certificate icon" />
+                        alt="certificate icon"
+                        data-lang-alt="certificate-icon-alt" />
                       <!-- Placeholder icon -->
                     </div>
-                    <h3 class="h4 card-title" style="margin-block: 0 10px">
+                    <h3 class="h4 card-title" style="margin-block: 0 10px" data-lang="mtsn-title">
                       MTsN Gresik
                     </h3>
-                    <p class="card-text"><strong>Year:</strong> 2020 - 2023</p>
-                    <p class="card-text">
+                    <p class="card-text"><strong data-lang="year">Year:</strong> 2020 - 2023</p>
+                    <p class="card-text" data-lang="mtsn-description">
                       MTsN (Madrasah Tsanawiyah Negeri) Gresik is a state
                       Islamic junior high school that was founded in 1970,
                       originally named MTs Darul Ulum. The location is on Jl.
@@ -363,7 +452,7 @@
               data-reveal="bottom"
               data-reveal-delay="0.25s"
               style="margin-top: 70px">
-              <h2 class="h2 section-title">Experience</h2>
+              <h2 class="h2 section-title" data-lang="experience">Experience</h2>
               <ul
                 class="grid-list"
                 style="grid-template-columns: 1fr; gap: 30px">
@@ -385,17 +474,21 @@
                         width="40"
                         height="40"
                         loading="lazy"
-                        alt="experience icon" />
+                        alt="experience icon"
+                        data-lang-alt="experience-icon-alt" />
                       <!-- Placeholder icon -->
                     </div>
-                    <h3 class="h4 card-title" style="margin-block: 0 5px">
+                    <h3 class="h4 card-title" style="margin-block: 0 5px" data-lang="mitratek-title">
                       CV. Mitra Teknologi Sejati
                     </h3>
-                    <p class="card-text" style="margin-bottom: 10px">
-                      Januari 2025 - Now
+                    <p class="card-text" style="margin-bottom: 10px" data-lang="mitratek-period">
+                      January 2025 - Present
                     </p>
                     <p class="card-text">
-                      <strong>Position:</strong> Internship Students
+                      <strong data-lang="position">Position:</strong> <span data-lang="internship-student">Internship Student</span>
+                    </p>
+                    <p class="card-text">
+                      <strong data-lang="tasks-accomplished">Tasks Accomplished:</strong>
                     </p>
                     <ul
                       style="
@@ -403,8 +496,11 @@
                         padding-left: 20px;
                         font-size: var(--fs-6);
                       ">
-                      <li>- Bentar Guys Lagi Mikir.</li>
-                      <li>- Besok Aja Okey.</li>
+                      <li data-lang="task-1">- Developed a Waste Bank Application for MRR community to manage waste collection and recycling</li>
+                      <li data-lang="task-2">- Configured and maintained web servers using Virtualmin control panel for client websites</li>
+                      <li data-lang="task-3">- Membuat video instruksional dan iklan produk untuk kampanye pemasaran MITRATEK</li>
+                      <li data-lang="task-4">- Mengatur dan mengkonfigurasi instalasi WordPress pada panel web Virtualmin untuk berbagai proyek</li>
+                      <li data-lang="task-5">- Mengembangkan aplikasi E-Voting untuk pemilihan ketua OSIS dengan fitur voting yang aman</li>
                     </ul>
                   </div>
                 </li>
@@ -416,11 +512,11 @@
               data-reveal="bottom"
               data-reveal-delay="0.5s"
               style="margin-top: 70px">
-              <h2 class="h2 section-title">Skill & Tools</h2>
+              <h2 class="h2 section-title" data-lang="skills">Skill & Tools</h2>
               <ul class="progress-list">
                 <li class="progress-item">
                   <div class="label-wrapper">
-                    <p>Suwun Wis Ngece Cak</p>
+                    <p data-lang="skill-1">Suwun Wis Ngece Cak</p>
                     <span class="span">99 %</span>
                   </div>
                   <div class="progress">
@@ -431,7 +527,7 @@
                 </li>
                 <li class="progress-item">
                   <div class="label-wrapper">
-                    <p>Opo Koe Iso Koyo Aku?</p>
+                    <p data-lang="skill-2">Opo Koe Iso Koyo Aku?</p>
                     <span class="span">88 %</span>
                   </div>
                   <div class="progress">
@@ -442,7 +538,7 @@
                 </li>
                 <li class="progress-item">
                   <div class="label-wrapper">
-                    <p>Wong Ashor Rabakal Ndlosor</p>
+                    <p data-lang="skill-3">Wong Ashor Rabakal Ndlosor</p>
                     <span class="span">77 %</span>
                   </div>
                   <div class="progress">
@@ -453,7 +549,7 @@
                 </li>
                 <li class="progress-item">
                   <div class="label-wrapper">
-                    <p>Sing Cangkeme Dukur Bakalan Gugur</p>
+                    <p data-lang="skill-4">Sing Cangkeme Dukur Bakalan Gugur</p>
                     <span class="span">66 %</span>
                   </div>
                   <div class="progress">
@@ -464,7 +560,7 @@
                 </li>
                 <li class="progress-item">
                   <div class="label-wrapper">
-                    <p>Wong Liyo Ngerti Opo</p>
+                    <p data-lang="skill-5">Wong Liyo Ngerti Opo</p>
                     <span class="span">55 %</span>
                   </div>
                   <div class="progress">
@@ -498,7 +594,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p class="copyright">© 2025 Ardianto. All rights reserved.</p>
+        <p class="copyright" data-lang="copyright">© 2025 Ardianto. All rights reserved.</p>
 
         <ul class="social-list">
           <li>
@@ -559,6 +655,165 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+    <script>
+      // Language translations
+      const translations = {
+        id: {
+          'home': 'Beranda',
+          'about': 'Tentang',
+          'projects': 'Proyek',
+          'contact': 'Kontak',
+          'about-me': 'Tentang Saya',
+          'about-description': 'Hai! Saya Ardi, seorang junior web developer yang bersemangat untuk terus belajar dan berkembang di dunia teknologi. Saya memiliki minat besar dalam memecahkan masalah melalui kode dan menciptakan aplikasi web yang berguna, intuitif, dan mudah digunakan. Saya selalu antusias dalam mengambil tantangan baru dan berkolaborasi dalam proyek-proyek inovatif.',
+          'download-cv': 'Unduh CV',
+          'contact-me': 'Hubungi Saya',
+          'education': 'Pendidikan',
+          'experience': 'Pengalaman',
+          'skills': 'Keahlian & Tools',
+          'smk-title': 'SMKN 1 Cerme Gresik',
+          'department': 'Jurusan:',
+          'smk-department': 'Teknik Komputer & Jaringan',
+          'year': 'Tahun:',
+          'smk-description': 'SMK Negeri 1 Cerme juga merupakan Academy Training Partner untuk MikroTik yang ditunjuk untuk mengimplementasikan program kelas MikroTik Academy untuk siswa, yang terintegrasi ke dalam kurikulum melalui topik Manajemen Jaringan Komputer.',
+          'mtsn-title': 'MTsN Gresik',
+          'mtsn-description': 'MTsN (Madrasah Tsanawiyah Negeri) Gresik adalah sekolah menengah pertama Islam negeri yang didirikan pada tahun 1970, awalnya bernama MTs Darul Ulum. Lokasinya berada di Jl. Raya Metatu No.31, Benjeng, Gresik 61172.',
+          'mitratek-title': 'CV. Mitra Teknologi Sejati',
+          'mitratek-period': 'Januari 2025 - Sekarang',
+          'position': 'Posisi:',
+          'internship-student': 'Siswa Magang',
+          'tasks-accomplished': 'Tugas yang Diselesaikan:',
+          'task-1': '- Mengembangkan Aplikasi Bank Sampah untuk komunitas MRR untuk mengelola pengumpulan dan daur ulang sampah',
+          'task-2': '- Mengkonfigurasi dan memelihara server web menggunakan panel kontrol Virtualmin untuk website klien',
+          'task-3': '- Membuat video instruksional dan iklan produk untuk kampanye pemasaran MITRATEK',
+          'task-4': '- Mengatur dan mengkonfigurasi instalasi WordPress pada panel web Virtualmin untuk berbagai proyek',
+          'task-5': '- Mengembangkan aplikasi E-Voting untuk pemilihan ketua OSIS dengan fitur voting yang aman',
+          'education-icon-alt': 'ikon pendidikan',
+          'certificate-icon-alt': 'ikon sertifikat',
+          'experience-icon-alt': 'ikon pengalaman',
+          'skill-1': 'Suwun Wis Ngece Cak',
+          'skill-2': 'Opo Koe Iso Koyo Aku?',
+          'skill-3': 'Wong Ashor Rabakal Ndlosor',
+          'skill-4': 'Sing Cangkeme Dukur Bakalan Gugur',
+          'skill-5': 'Wong Liyo Ngerti Opo',
+          'copyright': '© 2025 Ardianto. Semua hak dilindungi.'
+        },
+        en: {
+          'home': 'Home',
+          'about': 'About',
+          'projects': 'Projects',
+          'contact': 'Contact',
+          'about-me': 'About Me',
+          'about-description': 'Hi! I\'m Ardi, a junior web developer who is passionate about continuing to learn and grow in the world of technology. I have a great interest in solving problems through code and creating useful, intuitive, and easy-to-use web applications. I am always enthusiastic about taking on new challenges and collaborating on innovative projects.',
+          'download-cv': 'Download CV',
+          'contact-me': 'Contact Me',
+          'education': 'Education',
+          'experience': 'Experience',
+          'skills': 'Skill & Tools',
+          'smk-title': 'SMKN 1 Cerme Gresik',
+          'department': 'Department:',
+          'smk-department': 'Computer & Network Engineering',
+          'year': 'Year:',
+          'smk-description': 'SMK Negeri 1 Cerme is also the Academy Training Partner for MikroTik appointed to implement the MikroTik Academy class program for students, which is integrated into the curriculum through the topic of Computer Network Management.',
+          'mtsn-title': 'MTsN Gresik',
+          'mtsn-description': 'MTsN (Madrasah Tsanawiyah Negeri) Gresik is a state Islamic junior high school that was founded in 1970, originally named MTs Darul Ulum. The location is on Jl. Raya Metatu No.31, Benjeng, Gresik 61172.',
+          'mitratek-title': 'CV. Mitra Teknologi Sejati',
+          'mitratek-period': 'January 2025 - Present',
+          'position': 'Position:',
+          'internship-student': 'Internship Student',
+          'tasks-accomplished': 'Tasks Accomplished:',
+          'task-1': '- Developed a Waste Bank Application for MRR community to manage waste collection and recycling',
+          'task-2': '- Configured and maintained web servers using Virtualmin control panel for client websites',
+          'task-3': '- Created instructional videos and product advertisements for MITRATEK\'s marketing campaigns',
+          'task-4': '- Set up and configured WordPress installations on Virtualmin web panel for various projects',
+          'task-5': '- Developed an E-Voting application for student council elections with secure voting features',
+          'skill-1': 'Thanks for mocking me, bro',
+          'skill-2': 'Can you be like me?',
+          'skill-3': 'The humble won\'t stumble',
+          'skill-4': 'Those who talk big will fall',
+          'skill-5': 'What do outsiders know?',
+          'copyright': '© 2025 Ardianto. All rights reserved.'
+        }
+      };
+
+      // Function to change language
+      function changeLanguage(lang) {
+        const elements = document.querySelectorAll('[data-lang]');
+        elements.forEach(element => {
+          const key = element.getAttribute('data-lang');
+          if (translations[lang] && translations[lang][key]) {
+            // Special handling for elements with strong tags
+            if (element.tagName === 'STRONG') {
+              element.textContent = translations[lang][key];
+            } else if (element.tagName === 'SPAN') {
+              element.textContent = translations[lang][key];
+            } else {
+              element.textContent = translations[lang][key];
+            }
+          }
+        });
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = lang;
+        
+        // Update language button
+        const currentFlag = document.getElementById('currentFlag');
+        const currentLang = document.getElementById('currentLang');
+        
+        if (lang === 'id') {
+          currentFlag.src = "https://static.vecteezy.com/system/resources/previews/015/272/227/non_2x/indonesia-3d-rounded-flag-with-transparent-background-free-png.png";
+          currentLang.textContent = 'ID';
+        } else {
+          currentFlag.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/United-kingdom_flag_icon_round.svg/1200px-United-kingdom_flag_icon_round.svg.png";
+          currentLang.textContent = 'EN';
+        }
+        
+        // Save language preference
+        localStorage.setItem('preferred-language', lang);
+      }
+
+      // Initialize language
+      document.addEventListener('DOMContentLoaded', function() {
+        const savedLang = localStorage.getItem('preferred-language') || 'id';
+        const languageBtn = document.getElementById('languageBtn');
+        const languageDropdown = document.getElementById('languageDropdown');
+        
+        // Set initial language
+        changeLanguage(savedLang);
+        
+        if (languageBtn) {
+          // Toggle dropdown on button click
+          languageBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isVisible = languageDropdown.style.display === 'block';
+            languageDropdown.style.display = isVisible ? 'none' : 'block';
+          });
+          
+          // Handle language option clicks
+          document.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', function() {
+              const lang = this.getAttribute('data-lang');
+              changeLanguage(lang);
+              languageDropdown.style.display = 'none';
+            });
+            
+            // Add hover effect
+            option.addEventListener('mouseenter', function() {
+              this.style.backgroundColor = '#f5f5f5';
+            });
+            
+            option.addEventListener('mouseleave', function() {
+              this.style.backgroundColor = 'transparent';
+            });
+          });
+          
+          // Close dropdown when clicking outside
+          document.addEventListener('click', function() {
+            languageDropdown.style.display = 'none';
+          });
+        }
+      });
+    </script>
+
     <style>
       /* Simple responsive adjustments for about page layout */
       @media (min-width: 768px) {
@@ -578,6 +833,76 @@
         .section.about {
           padding-top: 120px !important;
         }
+      }
+
+      /* Language Selector Responsive Styles */
+      @media (max-width: 768px) {
+        .header-controls {
+          gap: 10px !important;
+        }
+
+        .language-selector {
+          margin: 0 !important;
+        }
+
+        #languageBtn {
+          padding: 6px 8px !important;
+          font-size: 12px !important;
+          min-width: 60px;
+        }
+
+        #currentLang {
+          display: none !important;
+        }
+
+        #currentFlag {
+          width: 18px !important;
+          height: 18px !important;
+        }
+
+        #languageDropdown {
+          right: 0 !important;
+          min-width: 100px !important;
+        }
+
+        .lang-option {
+          padding: 8px 10px !important;
+          font-size: 12px !important;
+        }
+
+        .lang-option img {
+          width: 18px !important;
+          height: 18px !important;
+        }
+      }
+
+      /* Language Selector Styles */
+      .language-selector {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+
+      #languageBtn {
+        font-family: inherit;
+      }
+
+      #currentFlag {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid #eee;
+      }
+
+      .lang-option {
+        font-family: inherit;
+      }
+
+      .lang-option img {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid #eee;
       }
       /* Placeholder icons - replace with actual SVGs or remove if not needed */
       /* You might need to create these SVGs or find suitable ones */

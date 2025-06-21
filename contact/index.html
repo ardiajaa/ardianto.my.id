@@ -157,6 +157,76 @@
           transform: rotate(360deg);
         }
       }
+
+      /* Language Selector Responsive Styles */
+      @media (max-width: 768px) {
+        .header-controls {
+          gap: 10px !important;
+        }
+
+        .language-selector {
+          margin: 0 !important;
+        }
+
+        #languageBtn {
+          padding: 6px 8px !important;
+          font-size: 12px !important;
+          min-width: 60px;
+        }
+
+        #currentLang {
+          display: none !important;
+        }
+
+        #currentFlag {
+          width: 18px !important;
+          height: 18px !important;
+        }
+
+        #languageDropdown {
+          right: 0 !important;
+          min-width: 100px !important;
+        }
+
+        .lang-option {
+          padding: 8px 10px !important;
+          font-size: 12px !important;
+        }
+
+        .lang-option img {
+          width: 18px !important;
+          height: 18px !important;
+        }
+      }
+
+      /* Language Selector Styles */
+      .language-selector {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+
+      #languageBtn {
+        font-family: inherit;
+      }
+
+      #currentFlag {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid #eee;
+      }
+
+      .lang-option {
+        font-family: inherit;
+      }
+
+      .lang-option img {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid #eee;
+      }
     </style>
   </head>
 
@@ -203,20 +273,20 @@
 
           <ul class="navbar-list">
             <li>
-              <a href="/" class="navbar-link">Home</a>
+              <a href="/" class="navbar-link" data-lang="home">Home</a>
             </li>
 
             <li>
-              <a href="/about/" class="navbar-link">About</a>
+              <a href="/about/" class="navbar-link" data-lang="about">About</a>
             </li>
 
             <li>
-              <a href="/project/" class="navbar-link">Projects</a>
+              <a href="/project/" class="navbar-link" data-lang="projects">Projects</a>
             </li>
 
             <li>
               <!-- Tandai sebagai aktif jika memungkinkan dengan JS, atau tambahkan kelas 'active' secara manual jika tidak ada JS -->
-              <a href="/contact/" class="navbar-link active">Contact</a>
+              <a href="/contact/" class="navbar-link active" data-lang="contact">Contact</a>
             </li>
           </ul>
 
@@ -269,9 +339,97 @@
           </ul>
         </nav>
 
-        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-        </button>
+        <div class="header-controls" style="
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        ">
+          <!-- Language Selector -->
+          <div class="language-selector" style="
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+          ">
+            <button 
+              id="languageBtn" 
+              aria-label="Pilih bahasa" 
+              style="
+                background: none;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                padding: 8px 12px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 14px;
+                transition: all 0.3s ease;
+              "
+            >
+              <img id="currentFlag" src="https://static.vecteezy.com/system/resources/previews/015/272/227/non_2x/indonesia-3d-rounded-flag-with-transparent-background-free-png.png" alt="Flag" style="width: 20px; height: 20px; object-fit: cover; border-radius: 50%;">
+              <span id="currentLang">ID</span>
+              <ion-icon name="chevron-down-outline" style="font-size: 12px;"></ion-icon>
+            </button>
+            
+            <div id="languageDropdown" style="
+              position: absolute;
+              top: 100%;
+              right: 0;
+              background: white;
+              border: 1px solid #ddd;
+              border-radius: 6px;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+              display: none;
+              z-index: 1000;
+              min-width: 120px;
+              margin-top: 4px;
+            ">
+              <button 
+                class="lang-option" 
+                data-lang="id" 
+                style="
+                  width: 100%;
+                  padding: 10px 12px;
+                  border: none;
+                  background: none;
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  font-size: 14px;
+                  transition: background-color 0.2s ease;
+                "
+              >
+                <img src="https://static.vecteezy.com/system/resources/previews/015/272/227/non_2x/indonesia-3d-rounded-flag-with-transparent-background-free-png.png" alt="Indonesia Flag" style="width: 20px; height: 20px; object-fit: cover; border-radius: 50%;">
+                <span>Indonesia</span>
+              </button>
+              <button 
+                class="lang-option" 
+                data-lang="en" 
+                style="
+                  width: 100%;
+                  padding: 10px 12px;
+                  border: none;
+                  background: none;
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  font-size: 14px;
+                  transition: background-color 0.2s ease;
+                "
+              >
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/United-kingdom_flag_icon_round.svg/1200px-United-kingdom_flag_icon_round.svg.png" alt="UK Flag" style="width: 20px; height: 20px; object-fit: cover; border-radius: 50%;">
+                <span>English</span>
+              </button>
+            </div>
+          </div>
+
+          <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
 
         <div class="overlay" data-nav-toggler data-overlay></div>
       </div>
@@ -300,12 +458,12 @@
                     alt="ikon amplop" />
                 </div>
 
-                <h2 class="h2 section-title">Let’s Collaborate!</h2>
+                <h2 class="h2 section-title" data-lang="lets-collaborate">Let's Collaborate!</h2>
 
-                <p class="section-text">
-                  I’m always open to discussing new projects, creative
+                <p class="section-text" data-lang="contact-description">
+                  I'm always open to discussing new projects, creative
                   opportunities, or just brainstorming. Feel free to contact me
-                  through this form, and I’ll respond promptly.
+                  through this form, and I'll respond promptly.
                 </p>
 
                 <!-- Informasi Kontak Tambahan (Opsional) -->
@@ -374,7 +532,8 @@
                 id="contactForm">
                 <h3
                   class="h3"
-                  style="margin-bottom: 20px; color: var(--charcoal)">
+                  style="margin-bottom: 20px; color: var(--charcoal)"
+                  data-lang="send-message">
                   Send Message Here!
                 </h3>
 
@@ -399,7 +558,7 @@
                   required
                   class="input-field"></textarea>
 
-                <button type="submit" class="btn btn-secondary" id="submitBtn">
+                <button type="submit" class="btn btn-secondary" id="submitBtn" data-lang="send-message-btn">
                   Send Message
                 </button>
               </form>
@@ -413,7 +572,8 @@
               style="margin-top: 60px; text-align: center">
               <h3
                 class="h3"
-                style="margin-bottom: 30px; color: var(--charcoal)">
+                style="margin-bottom: 30px; color: var(--charcoal)"
+                data-lang="my-location">
                 My Location
               </h3>
               <div class="embed-map-responsive">
@@ -486,7 +646,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p class="copyright">© 2025 Ardianto. All rights reserved.</p>
+        <p class="copyright" data-lang="copyright">© 2025 Ardianto. All rights reserved.</p>
 
         <ul class="social-list">
           <li>
@@ -546,6 +706,105 @@
 
     <!-- Script untuk Menampilkan Notifikasi -->
     <script>
+      // Language translations
+      const translations = {
+        id: {
+          'home': 'Beranda',
+          'about': 'Tentang',
+          'projects': 'Proyek',
+          'contact': 'Kontak',
+          'lets-collaborate': 'Mari Berkolaborasi!',
+          'contact-description': 'Saya selalu terbuka untuk mendiskusikan proyek baru, peluang kreatif, atau sekedar brainstorming. Jangan ragu untuk menghubungi saya melalui formulir ini, dan saya akan merespons dengan cepat.',
+          'send-message': 'Kirim Pesan Di Sini!',
+          'send-message-btn': 'Kirim Pesan',
+          'my-location': 'Lokasi Saya',
+          'copyright': '© 2025 Ardianto. Semua hak dilindungi.'
+        },
+        en: {
+          'home': 'Home',
+          'about': 'About',
+          'projects': 'Projects',
+          'contact': 'Contact',
+          'lets-collaborate': 'Let\'s Collaborate!',
+          'contact-description': 'I\'m always open to discussing new projects, creative opportunities, or just brainstorming. Feel free to contact me through this form, and I\'ll respond promptly.',
+          'send-message': 'Send Message Here!',
+          'send-message-btn': 'Send Message',
+          'my-location': 'My Location',
+          'copyright': '© 2025 Ardianto. All rights reserved.'
+        }
+      };
+
+      // Function to change language
+      function changeLanguage(lang) {
+        const elements = document.querySelectorAll('[data-lang]');
+        elements.forEach(element => {
+          const key = element.getAttribute('data-lang');
+          if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+          }
+        });
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = lang;
+        
+        // Update language button
+        const currentFlag = document.getElementById('currentFlag');
+        const currentLang = document.getElementById('currentLang');
+        
+        if (lang === 'id') {
+          currentFlag.src = "https://static.vecteezy.com/system/resources/previews/015/272/227/non_2x/indonesia-3d-rounded-flag-with-transparent-background-free-png.png";
+          currentLang.textContent = 'ID';
+        } else {
+          currentFlag.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/United-kingdom_flag_icon_round.svg/1200px-United-kingdom_flag_icon_round.svg.png";
+          currentLang.textContent = 'EN';
+        }
+        
+        // Save language preference
+        localStorage.setItem('preferred-language', lang);
+      }
+
+      // Initialize language
+      document.addEventListener('DOMContentLoaded', function() {
+        const savedLang = localStorage.getItem('preferred-language') || 'id';
+        const languageBtn = document.getElementById('languageBtn');
+        const languageDropdown = document.getElementById('languageDropdown');
+        
+        // Set initial language
+        changeLanguage(savedLang);
+        
+        if (languageBtn) {
+          // Toggle dropdown on button click
+          languageBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isVisible = languageDropdown.style.display === 'block';
+            languageDropdown.style.display = isVisible ? 'none' : 'block';
+          });
+          
+          // Handle language option clicks
+          document.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', function() {
+              const lang = this.getAttribute('data-lang');
+              changeLanguage(lang);
+              languageDropdown.style.display = 'none';
+            });
+            
+            // Add hover effect
+            option.addEventListener('mouseenter', function() {
+              this.style.backgroundColor = '#f5f5f5';
+            });
+            
+            option.addEventListener('mouseleave', function() {
+              this.style.backgroundColor = 'transparent';
+            });
+          });
+          
+          // Close dropdown when clicking outside
+          document.addEventListener('click', function() {
+            languageDropdown.style.display = 'none';
+          });
+        }
+      });
+
       const contactForm = document.getElementById("contactForm");
       const notificationPopup = document.getElementById("notification-popup");
       const popupOverlay = document.getElementById("popup-overlay");

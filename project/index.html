@@ -153,19 +153,19 @@
 
           <ul class="navbar-list">
             <li>
-              <a href="../" class="navbar-link">Home</a>
+              <a href="../" class="navbar-link" data-lang="home">Home</a>
             </li>
 
             <li>
-              <a href="../about/" class="navbar-link">About</a>
+              <a href="../about/" class="navbar-link" data-lang="about">About</a>
             </li>
 
             <li>
-              <a href="./" class="navbar-link active">Projects</a>
+              <a href="./" class="navbar-link active" data-lang="projects">Projects</a>
             </li>
 
             <li>
-              <a href="../contact/" class="navbar-link">Contact</a>
+              <a href="../contact/" class="navbar-link" data-lang="contact">Contact</a>
             </li>
           </ul>
 
@@ -225,9 +225,97 @@
           </ul>
         </nav>
 
-        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-        </button>
+        <div class="header-controls" style="
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        ">
+          <!-- Language Selector -->
+          <div class="language-selector" style="
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+          ">
+            <button 
+              id="languageBtn" 
+              aria-label="Pilih bahasa" 
+              style="
+                background: none;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                padding: 8px 12px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 14px;
+                transition: all 0.3s ease;
+              "
+            >
+              <img id="currentFlag" src="https://static.vecteezy.com/system/resources/previews/015/272/227/non_2x/indonesia-3d-rounded-flag-with-transparent-background-free-png.png" alt="Flag" style="width: 20px; height: 20px; object-fit: cover; border-radius: 50%;">
+              <span id="currentLang">ID</span>
+              <ion-icon name="chevron-down-outline" style="font-size: 12px;"></ion-icon>
+            </button>
+            
+            <div id="languageDropdown" style="
+              position: absolute;
+              top: 100%;
+              right: 0;
+              background: white;
+              border: 1px solid #ddd;
+              border-radius: 6px;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+              display: none;
+              z-index: 1000;
+              min-width: 120px;
+              margin-top: 4px;
+            ">
+              <button 
+                class="lang-option" 
+                data-lang="id" 
+                style="
+                  width: 100%;
+                  padding: 10px 12px;
+                  border: none;
+                  background: none;
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  font-size: 14px;
+                  transition: background-color 0.2s ease;
+                "
+              >
+                <img src="https://static.vecteezy.com/system/resources/previews/015/272/227/non_2x/indonesia-3d-rounded-flag-with-transparent-background-free-png.png" alt="Indonesia Flag" style="width: 20px; height: 20px; object-fit: cover; border-radius: 50%;">
+                <span>Indonesia</span>
+              </button>
+              <button 
+                class="lang-option" 
+                data-lang="en" 
+                style="
+                  width: 100%;
+                  padding: 10px 12px;
+                  border: none;
+                  background: none;
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  font-size: 14px;
+                  transition: background-color 0.2s ease;
+                "
+              >
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/United-kingdom_flag_icon_round.svg/1200px-United-kingdom_flag_icon_round.svg.png" alt="UK Flag" style="width: 20px; height: 20px; object-fit: cover; border-radius: 50%;">
+                <span>English</span>
+              </button>
+            </div>
+          </div>
+
+          <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
 
         <div class="overlay" data-nav-toggler data-overlay></div>
       </div>
@@ -246,8 +334,8 @@
         >
           <div class="container">
             <div class="title-wrapper" data-reveal="top">
-              <h1 class="h1 section-title" id="projects-title">My Projects</h1>
-              <p class="section-text">
+              <h1 class="h1 section-title" id="projects-title" data-lang="my-projects">My Projects</h1>
+              <p class="section-text" data-lang="projects-description">
                 Here are some of the projects I've worked on, showcasing my
                 skills and passion in web development. Each project reflects a
                 unique challenge and learning experience.
@@ -270,18 +358,16 @@
                   </figure>
                   <div class="card-content">
                     <h3 class="h3 card-title">
-                      <a class="card-link"
-                        >Project 1: Student Graduation Management System</a
-                      >
+                      <a class="card-link" data-lang="project-1-title">Project 1: Student Graduation Management System</a>
                     </h3>
-                    <p class="card-text">
+                    <p class="card-text" data-lang="project-1-description">
                       A comprehensive web application for managing and
                       displaying student graduation status with a complete admin
                       panel and integrated security system.
                     </p>
                     <div class="card-meta">
                       <span class="meta-item"
-                        ><strong>Technologies:</strong> PHP, MySQL, Tailwind
+                        ><strong data-lang="technologies">Technologies:</strong> PHP, MySQL, Tailwind
                         CSS, JavaScript</span
                       >
                     </div>
@@ -291,7 +377,7 @@
                         class="btn btn-primary btn-sm"
                         target="_blank"
                         rel="noopener noreferrer"
-                        >Live Demo</a
+                        data-lang="live-demo">Live Demo</a
                       >
                       <a
                         href="https://github.com/ardiajaa/kelulusan"
@@ -335,9 +421,9 @@
                   </figure>
                   <div class="card-content">
                     <h3 class="h3 card-title">
-                      <a class="card-link">Project 2: OSIS E-Voting System</a>
+                      <a class="card-link" data-lang="project-2-title">Project 2: OSIS E-Voting System</a>
                     </h3>
-                    <p class="card-text">
+                    <p class="card-text" data-lang="project-2-description">
                       A comprehensive and secure electronic voting system
                       specifically designed for school organization (OSIS)
                       elections. Features a modern interface with real-time
@@ -345,7 +431,7 @@
                     </p>
                     <div class="card-meta">
                       <span class="meta-item"
-                        ><strong>Technologies:</strong> PHP, MySQL, Tailwind
+                        ><strong data-lang="technologies">Technologies:</strong> PHP, MySQL, Tailwind
                         CSS, JavaScript</span
                       >
                     </div>
@@ -355,7 +441,7 @@
                         class="btn btn-primary btn-sm"
                         target="_blank"
                         rel="noopener noreferrer"
-                        >Live Demo</a
+                        data-lang="live-demo">Live Demo</a
                       >
                       <a
                         href="https://github.com/ardiajaa/E-Voting"
@@ -399,40 +485,28 @@
                   </figure>
                   <div class="card-content">
                     <h3 class="h3 card-title">
-                      <a class="card-link"
+                      <a class="card-link" data-lang="project-3-title"
                         >Project 3: Digital Waste Bank System</a
                       >
                     </h3>
-                    <p class="card-text">
+                    <p class="card-text" data-lang="project-3-description">
                       A comprehensive digital waste management system that
                       facilitates transaction processing, reporting, and waste
                       management education through a web-based platform.
                     </p>
                     <div class="card-meta">
                       <span class="meta-item"
-                        ><strong>Technologies:</strong> PHP, MySQL, Bootstrap,
+                        ><strong data-lang="technologies">Technologies:</strong> PHP, MySQL, Bootstrap,
                         JavaScript</span
                       >
                     </div>
                     <div class="btn-wrapper">
                       <a
-                        href="#"
+                        href="https://mrr.desadigital.web.id/bank-sampah/"
                         class="btn btn-primary btn-sm"
                         target="_blank"
                         rel="noopener noreferrer"
-                        onclick="event.preventDefault(); Swal.fire({
-                        title: 'Sorry about that... 😅',
-                        text: 'I currently don\'t have funds for hosting, so live demo isn\'t available yet. But you can check out the code on GitHub!',
-                        icon: 'info',
-                        confirmButtonText: 'Got it',
-                        confirmButtonColor: '#3f78e0',
-                        customClass: {
-                          popup: 'swal-custom',
-                          title: 'swal-title',
-                          content: 'swal-text'
-                        }
-                      })"
-                        >Live Demo</a
+                        data-lang="live-demo">Live Demo</a
                       >
                       <a
                         href="https://github.com/ardiajaa/bank_sampah"
@@ -461,18 +535,18 @@
                   </figure>
                   <div class="card-content">
                     <h3 class="h3 card-title">
-                      <a class="card-link"
+                      <a class="card-link" data-lang="project-4-title"
                         >Project 4: Password Pro - Password Generator</a
                       >
                     </h3>
-                    <p class="card-text">
+                    <p class="card-text" data-lang="project-4-description">
                       A secure and advanced online password generator with a
                       user-friendly interface, equipped with various features to
                       create strong and hard-to-guess passwords.
                     </p>
                     <div class="card-meta">
                       <span class="meta-item"
-                        ><strong>Technologies:</strong> HTML5, Tailwind CSS,
+                        ><strong data-lang="technologies">Technologies:</strong> HTML5, Tailwind CSS,
                         GSAP, SweetAlert2, Particles.js</span
                       >
                     </div>
@@ -482,7 +556,7 @@
                         class="btn btn-primary btn-sm"
                         target="_blank"
                         rel="noopener noreferrer"
-                        >Live Demo</a
+                        data-lang="live-demo">Live Demo</a
                       >
                       <a
                         href="https://github.com/ardiajaa/PasswordPro"
@@ -511,11 +585,11 @@
                   </figure>
                   <div class="card-content">
                     <h3 class="h3 card-title">
-                      <a class="card-link"
+                      <a class="card-link" data-lang="project-5-title"
                         >Project 5: QR Code Generator & Scanner</a
                       >
                     </h3>
-                    <p class="card-text">
+                    <p class="card-text" data-lang="project-5-description">
                       A modern and responsive QR Code Generator with scanning
                       capabilities. Instantly create customizable QR codes with
                       size, color, and logo options, and scan QR codes using
@@ -523,7 +597,7 @@
                     </p>
                     <div class="card-meta">
                       <span class="meta-item"
-                        ><strong>Technologies:</strong> HTML5, CSS3, JavaScript,
+                        ><strong data-lang="technologies">Technologies:</strong> HTML5, CSS3, JavaScript,
                         QRCode.js, html5-qrcode, jsPDF</span
                       >
                     </div>
@@ -533,7 +607,7 @@
                         class="btn btn-primary btn-sm"
                         target="_blank"
                         rel="noopener noreferrer"
-                        >Live Demo</a
+                        data-lang="live-demo">Live Demo</a
                       >
                       <a
                         href="https://github.com/ardiajaa/QRCode-Generator"
@@ -562,18 +636,18 @@
                   </figure>
                   <div class="card-content">
                     <h3 class="h3 card-title">
-                      <a class="card-link"
+                      <a class="card-link" data-lang="project-6-title"
                         >Project 6: Digital Birthday Greeting</a
                       >
                     </h3>
-                    <p class="card-text">
+                    <p class="card-text" data-lang="project-6-description">
                       A simple yet elegant website for sending personalized
                       digital birthday greetings, featuring background music and
                       visually appealing design.
                     </p>
                     <div class="card-meta">
                       <span class="meta-item"
-                        ><strong>Technologies:</strong> HTML5, CSS3,
+                        ><strong data-lang="technologies">Technologies:</strong> HTML5, CSS3,
                         JavaScript</span
                       >
                     </div>
@@ -583,7 +657,7 @@
                         class="btn btn-primary btn-sm"
                         target="_blank"
                         rel="noopener noreferrer"
-                        >Live Demo</a
+                        data-lang="live-demo">Live Demo</a
                       >
                       <a
                         href="https://github.com/ardiajaa/Ucapan-Ulang-Tahun"
@@ -671,7 +745,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p class="copyright">© 2025 Ardianto. All rights reserved.</p>
+        <p class="copyright" data-lang="copyright">© 2025 Ardianto. All rights reserved.</p>
 
         <ul class="social-list">
           <li>
@@ -737,6 +811,129 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+
+    <script>
+      // Language translations
+      const translations = {
+        id: {
+          'home': 'Beranda',
+          'about': 'Tentang',
+          'projects': 'Proyek',
+          'contact': 'Kontak',
+          'my-projects': 'Proyek Saya',
+          'projects-description': 'Berikut adalah beberapa proyek yang telah saya kerjakan, menampilkan keahlian dan passion saya dalam pengembangan web. Setiap proyek mencerminkan tantangan dan pengalaman belajar yang unik.',
+          'technologies': 'Teknologi:',
+          'live-demo': 'Demo Langsung',
+          'project-1-title': 'Proyek 1: Sistem Manajemen Kelulusan Siswa',
+          'project-1-description': 'Aplikasi web komprehensif untuk mengelola dan menampilkan status kelulusan siswa dengan panel admin lengkap dan sistem keamanan terintegrasi.',
+          'project-2-title': 'Proyek 2: Sistem E-Voting OSIS',
+          'project-2-description': 'Sistem pemungutan suara elektronik yang komprehensif dan aman yang dirancang khusus untuk pemilihan organisasi sekolah (OSIS). Fitur antarmuka modern dengan statistik real-time dan autentikasi yang kuat.',
+          'project-3-title': 'Proyek 3: Sistem Bank Sampah Digital',
+          'project-3-description': 'Sistem manajemen sampah digital yang komprehensif yang memfasilitasi pemrosesan transaksi, pelaporan, dan pendidikan manajemen sampah melalui platform berbasis web.',
+          'project-4-title': 'Proyek 4: Password Pro - Generator Kata Sandi',
+          'project-4-description': 'Generator kata sandi online yang aman dan canggih dengan antarmuka yang ramah pengguna, dilengkapi dengan berbagai fitur untuk membuat kata sandi yang kuat dan sulit ditebak.',
+          'project-5-title': 'Proyek 5: Generator & Scanner QR Code',
+          'project-5-description': 'Generator QR Code modern dan responsif dengan kemampuan pemindaian. Buat QR code yang dapat disesuaikan secara instan dengan opsi ukuran, warna, dan logo, dan pindai QR code menggunakan kamera perangkat Anda.',
+          'project-6-title': 'Proyek 6: Ucapan Ulang Tahun Digital',
+          'project-6-description': 'Website sederhana namun elegan untuk mengirim ucapan ulang tahun digital yang dipersonalisasi, menampilkan musik latar dan desain yang menarik secara visual.',
+          'copyright': '© 2025 Ardianto. Semua hak dilindungi.'
+        },
+        en: {
+          'home': 'Home',
+          'about': 'About',
+          'projects': 'Projects',
+          'contact': 'Contact',
+          'my-projects': 'My Projects',
+          'projects-description': 'Here are some of the projects I\'ve worked on, showcasing my skills and passion in web development. Each project reflects a unique challenge and learning experience.',
+          'technologies': 'Technologies:',
+          'live-demo': 'Live Demo',
+          'project-1-title': 'Project 1: Student Graduation Management System',
+          'project-1-description': 'A comprehensive web application for managing and displaying student graduation status with a complete admin panel and integrated security system.',
+          'project-2-title': 'Project 2: OSIS E-Voting System',
+          'project-2-description': 'A comprehensive and secure electronic voting system specifically designed for school organization (OSIS) elections. Features a modern interface with real-time statistics and robust authentication.',
+          'project-3-title': 'Project 3: Digital Waste Bank System',
+          'project-3-description': 'A comprehensive digital waste management system that facilitates transaction processing, reporting, and waste management education through a web-based platform.',
+          'project-4-title': 'Project 4: Password Pro - Password Generator',
+          'project-4-description': 'A secure and advanced online password generator with a user-friendly interface, equipped with various features to create strong and hard-to-guess passwords.',
+          'project-5-title': 'Project 5: QR Code Generator & Scanner',
+          'project-5-description': 'A modern and responsive QR Code Generator with scanning capabilities. Instantly create customizable QR codes with size, color, and logo options, and scan QR codes using your device\'s camera.',
+          'project-6-title': 'Project 6: Digital Birthday Greeting',
+          'project-6-description': 'A simple yet elegant website for sending personalized digital birthday greetings, featuring background music and visually appealing design.',
+          'copyright': '© 2025 Ardianto. All rights reserved.'
+        }
+      };
+
+      // Function to change language
+      function changeLanguage(lang) {
+        const elements = document.querySelectorAll('[data-lang]');
+        elements.forEach(element => {
+          const key = element.getAttribute('data-lang');
+          if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+          }
+        });
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = lang;
+        
+        // Update language button
+        const currentFlag = document.getElementById('currentFlag');
+        const currentLang = document.getElementById('currentLang');
+        
+        if (lang === 'id') {
+          currentFlag.src = "https://static.vecteezy.com/system/resources/previews/015/272/227/non_2x/indonesia-3d-rounded-flag-with-transparent-background-free-png.png";
+          currentLang.textContent = 'ID';
+        } else {
+          currentFlag.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/United-kingdom_flag_icon_round.svg/1200px-United-kingdom_flag_icon_round.svg.png";
+          currentLang.textContent = 'EN';
+        }
+        
+        // Save language preference
+        localStorage.setItem('preferred-language', lang);
+      }
+
+      // Initialize language
+      document.addEventListener('DOMContentLoaded', function() {
+        const savedLang = localStorage.getItem('preferred-language') || 'id';
+        const languageBtn = document.getElementById('languageBtn');
+        const languageDropdown = document.getElementById('languageDropdown');
+        
+        // Set initial language
+        changeLanguage(savedLang);
+        
+        if (languageBtn) {
+          // Toggle dropdown on button click
+          languageBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isVisible = languageDropdown.style.display === 'block';
+            languageDropdown.style.display = isVisible ? 'none' : 'block';
+          });
+          
+          // Handle language option clicks
+          document.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', function() {
+              const lang = this.getAttribute('data-lang');
+              changeLanguage(lang);
+              languageDropdown.style.display = 'none';
+            });
+            
+            // Add hover effect
+            option.addEventListener('mouseenter', function() {
+              this.style.backgroundColor = '#f5f5f5';
+            });
+            
+            option.addEventListener('mouseleave', function() {
+              this.style.backgroundColor = 'transparent';
+            });
+          });
+          
+          // Close dropdown when clicking outside
+          document.addEventListener('click', function() {
+            languageDropdown.style.display = 'none';
+          });
+        }
+      });
+    </script>
 
     <style>
       .project-list {
@@ -890,6 +1087,76 @@
         margin-right: auto;
         line-height: 1.65; /* Improved line height */
         font-size: var(--fs-5, 1.05rem); /* Slightly larger intro text */
+      }
+
+      /* Language Selector Responsive Styles */
+      @media (max-width: 768px) {
+        .header-controls {
+          gap: 10px !important;
+        }
+
+        .language-selector {
+          margin: 0 !important;
+        }
+
+        #languageBtn {
+          padding: 6px 8px !important;
+          font-size: 12px !important;
+          min-width: 60px;
+        }
+
+        #currentLang {
+          display: none !important;
+        }
+
+        #currentFlag {
+          width: 18px !important;
+          height: 18px !important;
+        }
+
+        #languageDropdown {
+          right: 0 !important;
+          min-width: 100px !important;
+        }
+
+        .lang-option {
+          padding: 8px 10px !important;
+          font-size: 12px !important;
+        }
+
+        .lang-option img {
+          width: 18px !important;
+          height: 18px !important;
+        }
+      }
+
+      /* Language Selector Styles */
+      .language-selector {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+
+      #languageBtn {
+        font-family: inherit;
+      }
+
+      #currentFlag {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid #eee;
+      }
+
+      .lang-option {
+        font-family: inherit;
+      }
+
+      .lang-option img {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid #eee;
       }
     </style>
   </body>
